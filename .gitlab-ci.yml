@@ -1,0 +1,7 @@
+
+stages:        
+  - build
+
+check-format:
+    stage: build
+    script: npx prettier . --check
