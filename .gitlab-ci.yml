@@ -1,6 +1,5 @@
-
-stages:        
-  - build
+stages:
+    - build
 
 check-format:
     stage: build
