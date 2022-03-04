@@ -4,4 +4,5 @@ stages:
 
 check-format:
     stage: build
+    image: node:17-alpine3.14
     script: npx prettier . --check
