@@ -1,0 +1,23 @@
+.container {
+    display: grid;
+    grid-template-columns: 4rem auto;
+    grid-template-rows: 2rem auto;
+    grid-template-areas:
+        'sidebar topbar '
+        'sidebar viewArea ';
+}
+
+.topBar {
+    width: fill;
+    height: 2rem;
+    grid-area: topbar;
+}
+
+.sideBar {
+    height: calc(100vh - 2rem);
+    grid-area: sidebar;
+}
+
+.viewArea {
+    grid-area: viewArea;
+}

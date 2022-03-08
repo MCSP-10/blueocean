@@ -1,0 +1,9 @@
+* {
+    margin: 0;
+}
+
+:root {
+    --buttonBlue: #3499e2;
+    --sidebarBlack: #2e3532;
+    --topbarGrey: #dbdbdb;
+}

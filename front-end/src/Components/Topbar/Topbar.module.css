@@ -1,0 +1,22 @@
+.container {
+    background-color: var(--topbarGrey);
+    display: flex;
+    justify-content: space-between;
+    overflow-y: visible;
+}
+
+.logoContainer {
+    width: 100%;
+}
+
+.crumbContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
