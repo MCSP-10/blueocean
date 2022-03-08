@@ -1,4 +1,4 @@
-const userSchema = {
+const registerSchema = {
     type: 'object',
     properties: {
         first: { type: 'string', minLength: 1 },
@@ -10,4 +10,4 @@ const userSchema = {
     required: ['first', 'last', 'email', 'password', 'role'],
 };
 
-export default userSchema;
+export default registerSchema;

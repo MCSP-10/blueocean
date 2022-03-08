@@ -1,8 +1,9 @@
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
-import userSchema from './schemas/userSchema.js';
+import registerSchema from './schemas/registerSchema.js';
+import loginSchema from './schemas/loginSchema.js';
 const ajv = new Ajv({ coerceTypes: true, allErrors: true });
 addFormats(ajv);
 
-export { userSchema };
+export { registerSchema, loginSchema };
 export default ajv;

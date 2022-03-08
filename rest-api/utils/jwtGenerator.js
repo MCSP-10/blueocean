@@ -7,6 +7,5 @@ export default function jwtGenerator(user_id, role) {
         user: user_id,
         role: role,
     };
-    console.log(payload);
-    return jwt.sign(payload, process.env.SECRET);
+    return jwt.sign(payload, process.env.SECRET, { expiresIn: '36hr' });
 }
