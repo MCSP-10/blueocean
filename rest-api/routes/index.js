@@ -1,2 +1,3 @@
 import users from './usersRoute.js';
-export { users };
+import applications from './applicationsRoute.js';
+export { users, applications };

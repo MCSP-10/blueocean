@@ -5,6 +5,7 @@ const loginSchema = {
         password: { type: 'string', minLength: 1 },
     },
     required: ['email', 'password'],
+    additionalProperties: false,
 };
 
 export default loginSchema;

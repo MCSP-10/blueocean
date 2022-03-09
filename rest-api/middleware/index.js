@@ -1,2 +1,3 @@
 import validate from './validate.js';
-export { validate };
+import authorization from './authorization.js';
+export { validate, authorization };

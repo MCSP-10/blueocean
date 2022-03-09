@@ -8,6 +8,7 @@ const registerSchema = {
         role: { type: 'string', minLength: 1 },
     },
     required: ['first', 'last', 'email', 'password', 'role'],
+    additionalProperties: false,
 };
 
 export default registerSchema;
