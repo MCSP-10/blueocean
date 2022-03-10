@@ -10,7 +10,7 @@ commentsModel.createComment = async (commentObj) => {
 
 commentsModel.updateComment = async (id, commentObj) => {
     const updateQuery = helpers.update(commentObj, null, 'comments');
-    const updatedComment = db.one(
+    const updatedComment = await db.one(
         updateQuery + 'WHERE comment_id=$1 RETURNING *',
         [id]
     );

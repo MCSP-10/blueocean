@@ -4,13 +4,13 @@ const applicationsModel = {};
 
 applicationsModel.createApplication = async (applicationObj) => {
     const insertQuery = helpers.insert(applicationObj, null, 'applications');
-    const newApplication = db.one(insertQuery + 'RETURNING *');
+    const newApplication = await db.one(insertQuery + 'RETURNING *');
     return newApplication;
 };
 
 applicationsModel.updateApplication = async (id, obj) => {
     const updateQuery = helpers.update(obj, null, 'applications');
-    const updatedApplication = db.one(
+    const updatedApplication = await db.one(
         updateQuery + 'WHERE application_id=$1 RETURNING *',
         [id]
     );

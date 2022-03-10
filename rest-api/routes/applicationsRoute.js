@@ -3,6 +3,7 @@ import { applicationsSchema } from '../ajv/index.js';
 import { validate, authorization } from '../middleware/index.js';
 import applicationsController from '../controllers/applicationsController.js';
 import commentsRoute from './commentsRoute.js';
+import updatesRoute from './updatesRoute.js';
 
 const applications = new Router();
 applications.use(json());
@@ -26,5 +27,6 @@ applications.delete(
 );
 
 applications.use('/comments', commentsRoute);
+applications.use('/updates', updatesRoute);
 
 export default applications;
