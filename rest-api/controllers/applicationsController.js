@@ -4,25 +4,27 @@ const applicationsController = {};
 
 applicationsController.createApplication = async (req, res) => {
     const application = await applicationsModel.createApplication({
-        id: req.user.id,
-        role: req.user.role,
+        user_id: req.user.id,
         ...req.body,
     });
     res.status(200).json(application);
 };
 
 applicationsController.updateApplication = async (req, res) => {
+    const { applicationId } = req.params;
     const application = await applicationsModel.updateApplication(
-        req.params.id,
+        applicationId,
         req.body
     );
     res.status(200).json(application);
 };
 
 applicationsController.deleteApplication = async (req, res) => {
+    const { applicationId } = req.params;
     const application = await applicationsModel.deleteApplication(
-        req.params.id
+        applicationId
     );
+    if (!application) return res.status(404).send('Not found');
     res.status(200).json(application);
 };
 

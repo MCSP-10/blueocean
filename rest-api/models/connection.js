@@ -1,14 +1,19 @@
-import pg from 'pg';
-import dotenv from 'dotenv';
-dotenv.config();
+import pgPromise from 'pg-promise';
 
 if (!process.env.DATABASE_URL) {
     console.error('No DATABASE_URL found');
     process.exit();
 }
 
-const pool = new pg.Pool({
-    connectionString: process.env.DATABASE_URL,
-});
+const initOptions = {
+    query(e) {
+        console.log(e.query);
+    },
+};
+const pgp = pgPromise(initOptions);
+const helpers = pgp.helpers;
 
-export default pool;
+const db = pgp(process.env.DATABASE_URL);
+
+export default db;
+export { helpers };

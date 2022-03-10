@@ -1,24 +1,22 @@
-import pool from './connection.js';
+import db from './connection.js';
 
 const usersModel = {};
 
 usersModel.createUser = async (body) => {
-    const { first, last, email, password, role } = body;
-    const {
-        rows: [result],
-    } = await pool.query(
-        'INSERT INTO users (first, last, email, password, role) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-        [first, last, email, password, role]
+    const newUser = await db.one(
+        `INSERT INTO users (first, last, email, password, role) 
+            VALUES ($(first), $(last), $(email), $(password), $(role)) 
+            RETURNING *`,
+        body
     );
-    return result;
+    return newUser;
 };
 
 usersModel.getUserByEmail = async (email) => {
-    const user = await pool.query('SELECT * FROM users WHERE email = $1', [
+    const user = await db.oneOrNone('SELECT * FROM users WHERE email = $1', [
         email,
     ]);
-    if (user.rows.length < 1) return false;
-    return user.rows[0];
+    return user;
 };
 
 export default usersModel;

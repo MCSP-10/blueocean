@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import 'dotenv/config';
 
 const authorization = async (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1];
