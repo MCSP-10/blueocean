@@ -1,6 +1,6 @@
 import usersModel from '../models/usersModel.js';
 import jwtGenerator from '../utils/jwtGenerator.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 const usersController = {};
 

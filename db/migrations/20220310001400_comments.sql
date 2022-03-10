@@ -1,3 +1,4 @@
+-- migrate:up
 CREATE TABLE comments(
     comment_id serial PRIMARY KEY,
     user_id integer REFERENCES users(user_id) ON DELETE CASCADE,
@@ -5,3 +6,8 @@ CREATE TABLE comments(
     body text,
     timestamp date
 );
+
+
+-- migrate:down
+DROP TABLE comments;
+

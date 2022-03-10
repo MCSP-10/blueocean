@@ -1,7 +1,6 @@
 const applicationSchema = {
     type: 'object',
     properties: {
-        user_id: { type: 'number' },
         company: { type: 'string', minLength: 1 },
         job_title: { type: 'string', minLength: 1 },
         deadline: { type: 'string', minLength: 1 },
@@ -12,7 +11,7 @@ const applicationSchema = {
         salary: { type: 'number', minimum: 0 },
         location: { type: 'string', minLength: 1 },
     },
-    required: ['user_id', 'company', 'status'],
+    required: ['company', 'status', 'job_title'],
     additionalProperties: false,
 };
 

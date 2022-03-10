@@ -1,0 +1,29 @@
+{
+    "dependencies": {
+        "prettier": "^2.5.1"
+    },
+    "name": "blue-ocean",
+    "version": "1.0.0",
+    "main": "index.js",
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier . --write",
+        "buildup": "docker compose -f docker-compose-development.yml up -d --build",
+        "builddown": "docker compose -f docker-compose-development.yml down",
+        "migrate:new": "docker run --rm -it --network=host -v \"$(pwd)/db:/db\" ghcr.io/amacneil/dbmate:1 new",
+        "migrate": "docker run --rm -it --network=host -v \"$(pwd)/db:/db\" ghcr.io/amacneil/dbmate:1 --url \"postgres://app:test@localhost:5435/blueocean?sslmode=disable\" migrate"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://gitlab.com/m7093/blue-ocean.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://gitlab.com/m7093/blue-ocean/issues"
+    },
+    "homepage": "https://gitlab.com/m7093/blue-ocean#readme",
+    "description": ""
+}

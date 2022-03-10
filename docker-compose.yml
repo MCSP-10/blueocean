@@ -1,0 +1,36 @@
+services:
+    postgres:
+        image: postgres:14.2-alpine
+        environment:
+            - POSTGRES_PASSWORD=test
+            - POSTGRES_USER=app
+            - POSTGRES_DB=blueocean
+        ports:
+            - 5435:5432
+        container_name: postgres
+        restart: on-failure
+    frontend:
+        image: bo-frontend
+        build:
+            context: ./front-end
+        environment:
+            - REACT_APP_BASE_API_URL=http://localhost:3001
+        volumes:
+            - ./front-end:/app
+        ports:
+            - 3000:3000
+        container_name: bo-frontend
+    restapi:
+        image: bo-restapi
+        build:
+            context: ./rest-api
+        volumes:
+            - ./rest-api:/app
+        ports:
+            - 3001:3001
+        container_name: bo-restapi
+        environment:
+            - DATABASE_URL=postgres://app:test@postgres:5432/blueocean
+            - SECRET=1234
+        depends_on:
+            - postgres
