@@ -75,3 +75,12 @@ INSERT INTO updates(application_id,body) VALUES (12, 'More updates or something'
 INSERT INTO updates(application_id,body) VALUES (12, 'More updates or something');
 INSERT INTO updates(application_id,body) VALUES (14, 'More updates or something');
 INSERT INTO updates(application_id,body) VALUES (15, 'More updates or something');
+
+INSERT INTO groups(user_id, group_name) VALUES (1, 'MCSP-10');
+INSERT INTO groups(user_id, group_name) VALUES (2, 'MCSP-10');
+INSERT INTO groups(user_id, group_name) VALUES (3, 'MCSP-10');
+INSERT INTO groups(user_id, group_name) VALUES (4, 'MCSP-10');
+INSERT INTO groups(user_id, group_name) VALUES (4, 'MCSP-11');
+INSERT INTO groups(user_id, group_name) VALUES (5, 'MCSP-10');
+INSERT INTO groups(user_id, group_name) VALUES (6, 'MCSP-11');
+INSERT INTO groups(user_id, group_name) VALUES (7, 'MCSP-11');

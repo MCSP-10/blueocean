@@ -1,7 +1,7 @@
 -- migrate:up
 CREATE TABLE groups(
-    group_name text PRIMARY KEY,
-    advisor_id integer REFERENCES users(user_id)
+    user_id integer REFERENCES users(user_id),
+    group_name text
 );
 
 

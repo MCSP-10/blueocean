@@ -90,8 +90,8 @@ ALTER SEQUENCE public.comments_comment_id_seq OWNED BY public.comments.comment_i
 --
 
 CREATE TABLE public.groups (
-    group_name text NOT NULL,
-    advisor_id integer
+    user_id integer,
+    group_name text
 );
 
 
@@ -287,14 +287,6 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- Name: groups groups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.groups
-    ADD CONSTRAINT groups_pkey PRIMARY KEY (group_name);
-
-
---
 -- Name: opportunities opportunities_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -351,19 +343,11 @@ ALTER TABLE ONLY public.comments
 
 
 --
--- Name: groups groups_advisor_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: groups groups_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.groups
-    ADD CONSTRAINT groups_advisor_id_fkey FOREIGN KEY (advisor_id) REFERENCES public.users(user_id);
-
-
---
--- Name: opportunities opportunities_group_name_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.opportunities
-    ADD CONSTRAINT opportunities_group_name_fkey FOREIGN KEY (group_name) REFERENCES public.groups(group_name);
+    ADD CONSTRAINT groups_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(user_id);
 
 
 --

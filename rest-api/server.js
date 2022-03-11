@@ -13,6 +13,7 @@ app.use(cors(corsConfig));
 
 app.use('/users', routes.users);
 app.use('/applications', routes.applications);
+app.use('/groups', routes.groups);
 
 app.listen(PORT, () => {
     console.log(`server running on port: ${PORT}`);

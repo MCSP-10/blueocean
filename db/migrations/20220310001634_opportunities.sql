@@ -1,7 +1,7 @@
 -- migrate:up
 CREATE TABLE opportunities(
     opportunity_id serial PRIMARY KEY,
-    group_name text REFERENCES groups(group_name),
+    group_name text,
     company varchar(50),
     job_title varchar(50),
     deadline date,
