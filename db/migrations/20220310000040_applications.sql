@@ -5,7 +5,7 @@ CREATE TABLE applications(
     company varchar(50),
     job_title varchar(50),
     deadline date,
-    post_url varchar(512),
+    post_url text,
     description text,
     note text,
     status varchar(50),

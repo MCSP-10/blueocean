@@ -23,7 +23,7 @@ CREATE TABLE public.applications (
     company character varying(50),
     job_title character varying(50),
     deadline date,
-    post_url character varying(512),
+    post_url text,
     description text,
     note text,
     status character varying(50),
