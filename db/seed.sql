@@ -1,10 +1,10 @@
-INSERT INTO users(first,last,email,password,role) VALUES('James','Rick','jr@email.com','123456','jobseeker');
-INSERT INTO users(first,last,email,password,role) VALUES('John','Richards','jr2@email.com','123456','jobseeker');
-INSERT INTO users(first,last,email,password,role) VALUES('Ricardo','Spencer','rs@email.com','123456','jobseeker');
-INSERT INTO users(first,last,email,password,role) VALUES('Isaias','Nuno','in@email.com','123456','admin');
-INSERT INTO users(first,last,email,password,role) VALUES('Bobert','Guster','bg@email.com','123456','jobseeker');
-INSERT INTO users(first,last,email,password,role) VALUES('Samantha','Bobby','sb@email.com','123456','jobseeker');
-INSERT INTO users(first,last,email,password,role) VALUES('John','Moore','jm@email.com','123456','jobseeker');
+INSERT INTO users(first,last,email,password,role) VALUES('James','Rick','jr@email.com','$2a$10$FdxPqPPcTwxNVvHv2oaimepP4wcPw7XniWtLx50YN5StmEZFglmj6','jobseeker');
+INSERT INTO users(first,last,email,password,role) VALUES('John','Richards','jr2@email.com','$2a$10$FdxPqPPcTwxNVvHv2oaimepP4wcPw7XniWtLx50YN5StmEZFglmj6','jobseeker');
+INSERT INTO users(first,last,email,password,role) VALUES('Ricardo','Spencer','rs@email.com','$2a$10$FdxPqPPcTwxNVvHv2oaimepP4wcPw7XniWtLx50YN5StmEZFglmj6','jobseeker');
+INSERT INTO users(first,last,email,password,role) VALUES('Isaias','Nuno','in@email.com','$2a$10$FdxPqPPcTwxNVvHv2oaimepP4wcPw7XniWtLx50YN5StmEZFglmj6','admin');
+INSERT INTO users(first,last,email,password,role) VALUES('Bobert','Guster','bg@email.com','$2a$10$FdxPqPPcTwxNVvHv2oaimepP4wcPw7XniWtLx50YN5StmEZFglmj6','jobseeker');
+INSERT INTO users(first,last,email,password,role) VALUES('Samantha','Bobby','sb@email.com','$2a$10$FdxPqPPcTwxNVvHv2oaimepP4wcPw7XniWtLx50YN5StmEZFglmj6','jobseeker');
+INSERT INTO users(first,last,email,password,role) VALUES('John','Moore','jm@email.com','$2a$10$FdxPqPPcTwxNVvHv2oaimepP4wcPw7XniWtLx50YN5StmEZFglmj6','jobseeker');
 
 INSERT INTO applications(user_id,company,job_title,deadline,post_url,description,note,status,salary,location) VALUES (1, 'Google', 'Software Developer', current_date + interval '7 day', 'https://www.linkedin.com/jobs/', 'A job at a place', 'apply soon', 'Interviewing', 125000, 'colorado springs');
 INSERT INTO applications(user_id,company,job_title,deadline,post_url,description,note,status,salary,location) VALUES (2, 'Google', 'Software Developer', current_date + interval '7 day', 'https://www.linkedin.com/jobs/', 'A job at a place', 'apply soon', 'Interviewing', 125000, 'colorado springs');

@@ -3,8 +3,9 @@ const post = {
     properties: {
         application_id: { type: 'number' },
         body: { type: 'string' },
+        timestamp: { type: 'string', minLength: 1 },
     },
-    required: ['application_id', 'body'],
+    required: ['application_id', 'body', 'timestamp'],
     additionalProperties: false,
 };
 
@@ -13,6 +14,7 @@ const update = {
     properties: {
         application_id: { type: 'number' },
         body: { type: 'string' },
+        timestamp: { type: 'string', minLength: 1 },
     },
     additionalProperties: false,
 };

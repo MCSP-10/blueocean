@@ -12,8 +12,9 @@ const initOptions = {
 };
 const pgp = pgPromise(initOptions);
 const helpers = pgp.helpers;
+const QueryFile = pgp.QueryFile;
 
 const db = pgp(process.env.DATABASE_URL);
 
 export default db;
-export { helpers };
+export { helpers, QueryFile };

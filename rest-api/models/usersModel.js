@@ -1,4 +1,4 @@
-import db from './connection.js';
+import db, { helpers } from './connection.js';
 
 const usersModel = {};
 
@@ -15,6 +15,13 @@ usersModel.createUser = async (body) => {
 usersModel.getUserByEmail = async (email) => {
     const user = await db.oneOrNone('SELECT * FROM users WHERE email = $1', [
         email,
+    ]);
+    return user;
+};
+
+usersModel.getUserById = async (userId) => {
+    const user = await db.oneOrNone(`SELECT * FROM users WHERE user_id=$1`, [
+        userId,
     ]);
     return user;
 };

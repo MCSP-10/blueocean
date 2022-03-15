@@ -2,6 +2,14 @@ import db, { helpers } from './connection.js';
 
 const commentsModel = {};
 
+commentsModel.getAll = async (applicationId) => {
+    const comments = await db.manyOrNone(
+        `SELECT * FROM comments WHERE application_id=$1 ORDER BY timestamp DESC`,
+        [applicationId]
+    );
+    return comments;
+};
+
 commentsModel.createComment = async (commentObj) => {
     const insertQuery = helpers.insert(commentObj, null, 'comments');
     const newComment = db.one(insertQuery + 'RETURNING *');
