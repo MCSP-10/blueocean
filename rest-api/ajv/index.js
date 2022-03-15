@@ -6,6 +6,7 @@ import * as commentsSchema from './schemas/commentsSchema.js';
 import * as applicationsSchema from './schemas/applicationsSchema.js';
 import * as updatesSchema from './schemas/updatesSchema.js';
 import * as groupsSchema from './schemas/groupsSchema.js';
+import * as opportunitiesSchema from './schemas/opportunitiesSchema.js';
 
 const ajv = new Ajv({ coerceTypes: true, allErrors: true });
 addFormats(ajv);
@@ -17,5 +18,6 @@ export {
     commentsSchema,
     updatesSchema,
     groupsSchema,
+    opportunitiesSchema,
 };
 export default ajv;
