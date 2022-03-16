@@ -1,0 +1,62 @@
+.page {
+    background: url('../../utils/images/papers\ 1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.container {
+    border: 3px solid var(--buttonBlue);
+    border-radius: 25px;
+    width: 25%;
+    background-color: #e3dfdf;
+    position: absolute;
+    top: 50%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title {
+    font-family: var(--poppins);
+}
+.googleBtn {
+    margin: 1rem;
+    width: 75%;
+    /* border: 1px solid green; */
+}
+.form {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    margin-top: 0;
+    width: 80%;
+}
+.email,
+.password {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    width: 100%;
+}
+.links {
+    /* border: 1px solid purple; */
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 1rem; */
+}
+.createLink {
+    text-decoration: underline;
+}
+.passwordLink {
+    text-decoration: underline;
+}
+.loginBtn {
+    margin: 1rem;
+    margin-top: 0;
+    height: 2rem;
+    width: 80%;
+}

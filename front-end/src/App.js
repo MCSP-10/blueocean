@@ -4,6 +4,8 @@ import Opportunities from './Views/Opportunities/Opportunities';
 import Sidebar from './Components/Sidebar/Sidebar';
 import Topbar from './Components/Topbar/Topbar';
 import styles from './App.module.css';
+import CreateUser from './Components/Login/CreateUser';
+import Login from './Components/Login/Login';
 
 export default function App() {
     return (
@@ -22,6 +24,8 @@ export default function App() {
                             path="/opportunities"
                             element={<Opportunities />}
                         ></Route>
+                        <Route path="/createuser" element={<CreateUser />} />
+                        <Route path="/login" element={<Login />} />
                     </Routes>
                 </div>
             </div>

@@ -1,0 +1,42 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+    margin-top: 3rem;
+}
+
+.oppCard {
+    display: flex;
+    height: 6rem;
+    display: flex;
+    border: 1px solid black;
+    border-radius: 0.4rem;
+    width: 90%;
+    padding: 0.2rem;
+    align-items: center;
+    justify-content: start;
+    /*  */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.oppCard:hover {
+    cursor: pointer;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    animation-name: example;
+    animation-duration: 0.25s;
+    border-left: 8px solid grey;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.logo_div {
+    height: 80%;
+    margin-right: 0.5rem;
+}
+
+.logo_div > img {
+    height: 100%;
+    border-radius: 0.4rem;
+}

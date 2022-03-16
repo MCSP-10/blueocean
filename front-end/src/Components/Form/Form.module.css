@@ -1,0 +1,149 @@
+.form {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.form_main {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 0.3rem;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    height: 60%;
+    align-self: center;
+    justify-self: center;
+}
+
+.company_name {
+    display: flex;
+    flex-direction: column;
+    grid-row: 1;
+    grid-column-start: 2;
+    grid-column-end: 7;
+    align-self: end;
+}
+
+.job_title {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 2;
+    grid-column-end: 7;
+    grid-row: 2;
+}
+
+.location {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.deadline {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.salary {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 5;
+    grid-column-end: 7;
+}
+
+.status {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 5;
+}
+
+.url {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 4;
+}
+
+.updates {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 8;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 6;
+    grid-row-end: 8;
+}
+
+.save_btn {
+    grid-row-start: 8;
+    grid-column-start: 2;
+    border-radius: 0.3rem;
+    background-color: var(--buttonBlue);
+    color: white;
+}
+
+.description > textarea,
+.updates > textarea {
+    height: fill;
+    resize: none;
+}
+
+.comment_container {
+    margin-left: 0.4rem;
+    background-color: var(--topbarGrey);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    height: 95%;
+}
+
+.comment_item_container {
+    padding: 0.4rem;
+    margin: 0.7rem;
+    border-radius: 0.5rem;
+    background-color: var(--backGroundWhite);
+    display: flex;
+    flex-direction: column;
+}
+
+.comment_author {
+    /* border: 1px solid black; */
+}
+
+.post_comment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post_comment > button {
+    border-radius: 0.3rem;
+    background-color: var(--buttonBlue);
+    color: white;
+}
+
+.time_stamp {
+    font-size: 50%;
+}

@@ -1,0 +1,36 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal_container {
+    display: grid;
+    grid-template-rows: 1.5rem auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--backGroundWhite);
+    min-height: 35rem;
+    min-width: 45rem;
+    padding: 5rem;
+    z-index: 1000;
+    border-radius: 0.4rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.close_btn {
+    margin-left: auto;
+    border-radius: 0.4rem;
+    width: 25%;
+}
+
+.modal_body {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,9 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
 * {
     margin: 0;
+    font-family: var(--dmSans);
 }
 
 :root {
     --buttonBlue: #3499e2;
     --sidebarBlack: #2e3532;
     --topbarGrey: #dbdbdb;
+    --backGroundWhite: #e7e7e7;
+    --poppins: 'Poppins', sans-serif;
+    --manrope: 'Manrope', sans-serif;
+    --dmSans: 'DM Sans', sans-serif;
+    --blackOps: 'Black Ops One', cursive;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
 }
