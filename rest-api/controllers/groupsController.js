@@ -3,6 +3,11 @@ import usersModel from '../models/usersModel.js';
 
 const groupsController = {};
 
+groupsController.getUsersFromGroup = async (req, res) => {
+    const users = await groupsModel.getUsersFromGroup(req.params.groupName);
+    res.status(200).json(users);
+};
+
 groupsController.assignUserToGroup = async (req, res) => {
     const user = await usersModel.getUserByEmail(req.body.email);
     if (!user) return res.status(404).send('user does not exist');

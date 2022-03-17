@@ -8,6 +8,7 @@ users.use(json());
 
 users.post('/register', validate(registerSchema), usersController.register);
 users.post('/login', validate(loginSchema), usersController.login);
-users.get('/', authorization, usersController.getAllData);
+users.get('/', authorization, usersController.getUserData);
+users.get('/allData', authorization, usersController.getAllData);
 
 export default users;

@@ -8,6 +8,8 @@ import updatesRoute from './updatesRoute.js';
 const applications = new Router();
 applications.use(json());
 
+applications.get('/', authorization, applicationsController.getApplications);
+
 applications.post(
     '/',
     authorization,

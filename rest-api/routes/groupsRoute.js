@@ -6,6 +6,7 @@ import groupsController from '../controllers/groupsController.js';
 const groups = new Router();
 groups.use(json());
 
+groups.get('/:groupName', authorization, groupsController.getUsersFromGroup);
 groups.post(
     '/',
     authorization,

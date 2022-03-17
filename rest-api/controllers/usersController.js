@@ -28,8 +28,14 @@ usersController.login = async (req, res) => {
     if (!verifiedPassword) return res.status(401).send('incorrect credentials');
 
     const token = await jwtGenerator(user_id, role);
-    res.json({ token });
+    res.json({ token, ...user });
 };
+
+usersController.getUserData = async (req, res) => {
+    const userData = await usersModel.getUserById(req.user.id);
+    res.status(200).json(userData);
+};
+
 usersController.getAllData = async (req, res) => {
     if (req.user.role === 'jobseeker') {
         const userData = await usersModel.getUserById(req.user.id);

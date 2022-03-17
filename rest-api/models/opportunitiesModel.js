@@ -3,7 +3,7 @@ import db, { helpers } from './connection.js';
 const opportunitiesModel = {};
 
 opportunitiesModel.getOpportunity = async (groupName) => {
-    const opportunities = await db.many(
+    const opportunities = await db.manyOrNone(
         `SELECT * from opportunities WHERE group_name=$1 `,
         [groupName]
     );
