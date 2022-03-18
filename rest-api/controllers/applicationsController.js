@@ -4,6 +4,9 @@ const applicationsController = {};
 
 applicationsController.getApplications = async (req, res) => {
     const applications = await applicationsModel.getAllForUser(req.user.id);
+    applications.forEach((application) => {
+        application.logo = `https://logo.clearbit.com/${application.company}.com`;
+    });
     res.status(200).json(applications);
 };
 
@@ -12,6 +15,7 @@ applicationsController.createApplication = async (req, res) => {
         user_id: req.user.id,
         ...req.body,
     });
+    application.logo = `https://logo.clearbit.com/${application.company}.com`;
     res.status(200).json(application);
 };
 
@@ -21,6 +25,7 @@ applicationsController.updateApplication = async (req, res) => {
         applicationId,
         req.body
     );
+    application.logo = `https://logo.clearbit.com/${application.company}.com`;
     res.status(200).json(application);
 };
 
