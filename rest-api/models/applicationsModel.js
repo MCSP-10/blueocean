@@ -19,16 +19,44 @@ applicationsModel.getAllForUser = async (userId) => {
 
 applicationsModel.createApplication = async (applicationObj) => {
     const insertQuery = helpers.insert(applicationObj, null, 'applications');
-    const newApplication = await db.one(insertQuery + 'RETURNING *');
+    const newApplication = await db.one(
+        insertQuery +
+            `RETURNING application_id AS id,
+            company, 
+            job_title AS title,
+            deadline,
+            post_url AS url,
+            description,
+            note,
+            status,
+            salary,
+            location`
+    );
+    newApplication.comments = [];
+    newApplication.updates = [];
     return newApplication;
 };
 
 applicationsModel.updateApplication = async (id, obj) => {
     const updateQuery = helpers.update(obj, null, 'applications');
     const updatedApplication = await db.one(
-        updateQuery + 'WHERE application_id=$1 RETURNING *',
+        updateQuery +
+            `WHERE application_id=$1 RETURNING application_id AS id,
+            company, 
+            job_title AS title,
+            deadline,
+            post_url AS url,
+            description,
+            note,
+            status,
+            salary,
+            location`,
         [id]
     );
+    const comments = await commentsModel.getAll(updatedApplication.id);
+    const updates = await updatesModel.getAll(updatedApplication.id);
+    updatedApplication.comments = comments;
+    updatedApplication.updates = updates;
     return updatedApplication;
 };
 applicationsModel.deleteApplication = async (id) => {
