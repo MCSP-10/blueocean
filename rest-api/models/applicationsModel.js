@@ -43,7 +43,7 @@ applicationsModel.updateApplication = async (id, obj) => {
         updateQuery +
             `WHERE application_id=$1 RETURNING application_id AS id,
             company, 
-            job_title AS title,
+            job_title AS "JobTitle",
             deadline,
             post_url AS url,
             description,

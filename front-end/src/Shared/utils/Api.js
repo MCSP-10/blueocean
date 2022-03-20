@@ -8,6 +8,7 @@ const request = (method, endpoint, body) => {
     const opts = {
         method: method,
         headers: {
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
         },
     };
@@ -24,6 +25,8 @@ Api.opportunities = {
 
 Api.applications = {
     getAll: () => request('GET', '/applications'),
+    setStatus: (id, status) =>
+        request('PATCH', '/applications/' + id, { status }),
 };
 
 Api.auth = {

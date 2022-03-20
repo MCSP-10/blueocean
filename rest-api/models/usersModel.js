@@ -16,7 +16,7 @@ usersModel.getUserByEmail = async (email) => {
     const user = await db.oneOrNone(
         `
     SELECT 
-    user_id AS id, 
+    user_id, 
     first, 
     last, 
     email, 

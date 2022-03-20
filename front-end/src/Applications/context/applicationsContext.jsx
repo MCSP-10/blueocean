@@ -9,12 +9,18 @@ export const ApplicationsProvider = ({ children }) => {
     const getApplications = async () => {
         const apps = await Api.applications.getAll();
         setApplications(apps);
-        console.log(apps);
+    };
+
+    const changeStatus = async (id, status) => {
+        const updatedApplication = await Api.applications.setStatus(id, status);
+        const index = applications.findIndex((app) => app.id === id);
+        applications[index] = updatedApplication;
+        setApplications([...applications]);
     };
 
     useEffect(getApplications, []);
 
-    const exports = { applications };
+    const exports = { applications, changeStatus };
     return (
         <applicationsContext.Provider value={exports}>
             {children}

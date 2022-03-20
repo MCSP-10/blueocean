@@ -9,28 +9,31 @@
 }
 
 .modal_container {
-    display: grid;
     grid-template-rows: 1.5rem auto;
-    position: fixed;
     top: 50%;
+    position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--backGroundWhite);
-    min-height: 35rem;
-    min-width: 45rem;
-    padding: 5rem;
     z-index: 1000;
-    border-radius: 0.4rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 0.25rem;
 }
 
-.close_btn {
-    margin-left: auto;
-    border-radius: 0.4rem;
-    width: 25%;
+.topBar {
+    background-color: lightgrey;
+    padding: 0.2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+.close_btn:hover {
+    cursor: pointer;
 }
 
 .modal_body {
     display: flex;
     flex-direction: column;
+    padding: 1em;
 }

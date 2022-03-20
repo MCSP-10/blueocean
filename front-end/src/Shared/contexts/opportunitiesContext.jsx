@@ -9,7 +9,6 @@ export const OpportunitiesProvider = ({ children }) => {
     const getOpps = async () => {
         const opps = await Api.opportunities.getAllByGroup('MCSP-10');
         setOpportunities(opps);
-        console.log(opps);
     };
 
     useEffect(getOpps, []);

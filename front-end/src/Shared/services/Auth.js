@@ -28,6 +28,7 @@ export const AuthProvider = ({ children }) => {
 
         const data = await response.json();
         window.localStorage.setItem('token', data.token);
+        console.log(data);
         setIsLoggedIn(() => true);
         return true;
     };

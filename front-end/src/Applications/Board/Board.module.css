@@ -1,6 +1,7 @@
 .component {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 .column {
     display: flex;
@@ -8,8 +9,18 @@
     justify-content: start;
     align-items: center;
     width: 20%;
+    height: 100%;
 }
 .columnTitle {
+}
+.addAppButton:hover {
+    cursor: pointer;
+}
+
+.hoverBox {
+    width: 95%;
+    height: 50px;
+    background-color: grey;
 }
 
 .card {
@@ -22,6 +33,7 @@
     font-size: 80%;
     margin: 8px 0px;
     diplay: grid;
+    min-height: 100px;
     grid-template-columns: 50px auto;
     grid-template-rows: 1em auto;
     grid-template-areas:

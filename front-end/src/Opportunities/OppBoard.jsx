@@ -16,7 +16,7 @@ export default function OppBoard() {
                     return (
                         <OppCard
                             app={opp}
-                            key={opp.opportunity_id}
+                            key={opp.id}
                             setIsOpen={setIsOpen}
                             setAppForm={setAppForm}
                         />
