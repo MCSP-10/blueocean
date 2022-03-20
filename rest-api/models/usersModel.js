@@ -13,9 +13,18 @@ usersModel.createUser = async (body) => {
 };
 
 usersModel.getUserByEmail = async (email) => {
-    const user = await db.oneOrNone('SELECT * FROM users WHERE email = $1', [
-        email,
-    ]);
+    const user = await db.oneOrNone(
+        `
+    SELECT 
+    user_id AS id, 
+    first, 
+    last, 
+    email, 
+    password, 
+    role 
+    FROM users WHERE email = $1`,
+        [email]
+    );
     return user;
 };
 

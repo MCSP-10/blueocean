@@ -15,7 +15,8 @@ usersController.register = async (req, res) => {
     const newUser = await usersModel.createUser(req.body);
 
     const token = await jwtGenerator(newUser.user_id, newUser.role);
-    res.json({ token });
+    const userData = await usersModel.getUserByEmail(req.body.email);
+    res.json({ token, ...userData });
 };
 
 usersController.login = async (req, res) => {

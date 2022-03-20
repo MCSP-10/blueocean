@@ -1,12 +1,12 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
+    justify-content: start;
     height: 100%;
     padding-top: 2rem;
     width: 100%;
     background-color: var(--sidebarBlack);
-    border-right: 0.2rem solid var(--topbarGrey);
 }
 
 .homeBtn,
@@ -17,7 +17,7 @@
     background-color: var(--buttonBlue);
     width: 70%;
     margin-bottom: 1rem;
-    border-radius: 0.4rem;
+    border-radius: 0.25rem;
     transition: filter 0.3s;
 }
 

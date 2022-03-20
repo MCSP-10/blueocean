@@ -9,9 +9,7 @@ export default function OppCard({ app, setIsOpen, setAppForm }) {
                 setAppForm(app);
             }}
         >
-            <div className={styles.logo_div}>
-                <img src={app.logo} alt={app.company} />
-            </div>
+            <div className={styles.logo_div}></div>
             <div className={styles.info_div}>
                 <h1>{app.company}</h1>
                 <h3>{app.job_title}</h3>

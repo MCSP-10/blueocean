@@ -1,21 +1,22 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import OppCard from './OppCard';
-import Modal from '../Modal/Modal';
+import Modal from 'Shared/components/Modal/Modal';
 import styles from './OppBoard.module.css';
-import { applications } from '../../utils/data';
+import oppContext from 'Shared/contexts/opportunitiesContext';
 
 export default function OppBoard() {
     const [isOpen, setIsOpen] = useState(false);
     const [appForm, setAppForm] = useState('');
+    const { opportunities } = useContext(oppContext);
 
     return (
         <>
             <div className={styles.container}>
-                {applications.map((app) => {
+                {opportunities.map((opp) => {
                     return (
                         <OppCard
-                            app={app}
-                            key={app.id}
+                            app={opp}
+                            key={opp.opportunity_id}
                             setIsOpen={setIsOpen}
                             setAppForm={setAppForm}
                         />

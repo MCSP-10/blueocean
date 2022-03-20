@@ -1,15 +1,14 @@
 .container {
     display: grid;
-    grid-template-columns: 4rem auto;
-    grid-template-rows: 2.3rem auto;
+    grid-template-columns: 180px auto;
+    grid-template-rows: 50px auto;
     grid-template-areas:
-        'sidebar topbar '
-        'sidebar viewArea ';
+        'sidebar topbar'
+        'sidebar viewArea';
+    height: 100vh;
 }
 
 .topBar {
-    width: fill;
-    height: 2rem;
     grid-area: topbar;
 }
 
