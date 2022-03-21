@@ -9,9 +9,8 @@ import {
     useLocation,
 } from 'react-router-dom';
 import App from 'App';
-import Login from 'Login';
 import Auth, { useAuth, AuthProvider } from 'Shared/services/Auth';
-import RegLogin from 'RegLogin';
+import Login from 'Login';
 import './main.css';
 
 const RequireAuth = (props) => {
@@ -28,7 +27,7 @@ ReactDOM.render(
         <AuthProvider>
             <Router>
                 <Routes>
-                    <Route path="/login" element={<RegLogin />} />
+                    <Route path="/login" element={<Login />} />
                     <Route element={<RequireAuth />}>
                         <Route path="/*" element={<App />} />
                     </Route>

@@ -32,7 +32,7 @@
     overflow: hidden;
     font-size: 80%;
     margin: 8px 0px;
-    diplay: grid;
+    display: grid;
     min-height: 100px;
     grid-template-columns: 50px auto;
     grid-template-rows: 1em auto;
