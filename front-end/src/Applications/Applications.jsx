@@ -1,9 +1,9 @@
-import AppsBoard from './Board';
-import { ApplicationsProvider } from 'Applications/context/applicationsContext';
+import { ApplicationsBoard } from 'Applications';
+import { ApplicationsProvider } from 'Applications';
 const Applications = () => {
     return (
         <ApplicationsProvider>
-            <AppsBoard />
+            <ApplicationsBoard />
         </ApplicationsProvider>
     );
 };

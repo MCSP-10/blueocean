@@ -18,9 +18,15 @@ export const ApplicationsProvider = ({ children }) => {
         setApplications([...applications]);
     };
 
+    const createApplication = async (body) => {
+        const newApp = await Api.applications.create(body);
+        applications.push(newApp);
+        setApplications([...applications]);
+    };
+
     useEffect(getApplications, []);
 
-    const exports = { applications, changeStatus };
+    const exports = { applications, changeStatus, createApplication };
     return (
         <applicationsContext.Provider value={exports}>
             {children}

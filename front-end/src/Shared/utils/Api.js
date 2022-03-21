@@ -27,10 +27,14 @@ Api.applications = {
     getAll: () => request('GET', '/applications'),
     setStatus: (id, status) =>
         request('PATCH', '/applications/' + id, { status }),
+    create: (body) => request('POST', '/applications', body),
 };
-
 Api.auth = {
     post: (body) => request('POST', '/users/'),
 };
+
+const applications = Api.applications;
+
+export { applications };
 
 export default Api;

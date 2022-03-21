@@ -11,7 +11,10 @@ import {
 import App from 'App';
 import Auth, { useAuth, AuthProvider } from 'Shared/services/Auth';
 import Login from 'Login';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import './main.css';
+
+const queryClient = new QueryClient();
 
 const RequireAuth = (props) => {
     const { location } = useLocation();
@@ -24,16 +27,18 @@ const RequireAuth = (props) => {
 };
 ReactDOM.render(
     <React.StrictMode>
-        <AuthProvider>
-            <Router>
-                <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route element={<RequireAuth />}>
-                        <Route path="/*" element={<App />} />
-                    </Route>
-                </Routes>
-            </Router>
-        </AuthProvider>
+        <QueryClientProvider client={queryClient}>
+            <AuthProvider>
+                <Router>
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                        <Route element={<RequireAuth />}>
+                            <Route path="/*" element={<App />} />
+                        </Route>
+                    </Routes>
+                </Router>
+            </AuthProvider>
+        </QueryClientProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );

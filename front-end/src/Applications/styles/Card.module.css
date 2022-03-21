@@ -1,29 +1,4 @@
 .component {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-}
-.column {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    width: 20%;
-    height: 100%;
-}
-.columnTitle {
-}
-.addAppButton:hover {
-    cursor: pointer;
-}
-
-.hoverBox {
-    width: 95%;
-    height: 50px;
-    background-color: grey;
-}
-
-.card {
     box-sizing: border-box;
     border-radius: 0.2em;
     padding: 10px;
@@ -41,10 +16,9 @@
         'logo position';
 }
 
-.card:hover {
-    cursor: grab;
+.component:hover {
 }
-.card img {
+.component img {
     height: 40px;
     grid-area: logo;
 }
