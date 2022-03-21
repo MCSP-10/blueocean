@@ -10,16 +10,16 @@ export default function Sidebar() {
         <div className={styles.container}>
             <Link to={'/applications'}>
                 <Button
-                    icon={<RiNewspaperLine size={30} color={'white'} />}
+                    icon={<RiNewspaperLine size={30} color={'#F2EFEB'} />}
                     text="Applications"
-                    textColor="white"
+                    textColor="offWhite"
                 />
             </Link>
             <Link to={'/opportunities'}>
                 <Button
-                    icon={<GoMegaphone size={30} color={'white'} />}
+                    icon={<GoMegaphone size={30} color={'#F2EFEB'} />}
                     text="Opportunities"
-                    textColor="white"
+                    textColor="offWhite"
                 />
             </Link>
         </div>

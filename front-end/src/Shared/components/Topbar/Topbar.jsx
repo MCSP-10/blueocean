@@ -12,7 +12,7 @@ export default function Topbar() {
             <Link to={'/home'}>
                 <GiBerriesBowl size={40} color={'black'} />
             </Link>
-            <h1>Gatherer</h1>
+            <h1>Cazador</h1>
             <Button
                 text="Logout"
                 onClick={logout}

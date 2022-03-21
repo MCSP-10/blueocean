@@ -6,6 +6,12 @@ const Button = (props) => {
         cyan: 'cyan',
         white: 'white',
         black: 'black',
+        orange: '#F04625',
+        peach: '#F19B88',
+        darkBlue: '#3C5A68',
+        chocolate: '#1D170B',
+        olive: '#47381D',
+        offWhite: '#F2EFEB',
     };
     return (
         <button
