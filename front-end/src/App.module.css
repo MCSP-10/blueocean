@@ -1,11 +1,12 @@
 .container {
     display: grid;
-    grid-template-columns: 180px auto;
-    grid-template-rows: 50px auto;
+    grid-template-columns: 12rem auto;
+    grid-template-rows: 5rem auto;
     grid-template-areas:
         'sidebar topbar'
         'sidebar viewArea';
     height: 100vh;
+    background-color: var(--offWhite);
 }
 
 .topBar {

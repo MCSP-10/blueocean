@@ -8,6 +8,7 @@ const Button = (props) => {
         black: 'black',
         orange: '#F04625',
         peach: '#F19B88',
+        mainBlue: '#68a6ad',
         darkBlue: '#3C5A68',
         chocolate: '#1D170B',
         olive: '#47381D',
