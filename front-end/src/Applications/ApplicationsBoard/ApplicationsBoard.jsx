@@ -8,7 +8,6 @@ import useApplications from 'Applications/useApplications';
 
 export default function Board() {
     const { data, status } = useApplications();
-    console.log(data, status);
     const { applications } = useContext(applicationsContext);
     const columns = [
         'Interested',

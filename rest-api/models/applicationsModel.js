@@ -47,7 +47,7 @@ applicationsModel.createApplication = async (applicationObj) => {
         insertQuery +
             `RETURNING application_id AS id,
             company, 
-            job_title AS title,
+            job_title AS "title",
             deadline,
             post_url AS url,
             description,
@@ -67,7 +67,7 @@ applicationsModel.updateApplication = async (id, obj) => {
         updateQuery +
             `WHERE application_id=$1 RETURNING application_id AS id,
             company, 
-            job_title AS "JobTitle",
+            job_title AS "title",
             deadline,
             post_url AS url,
             description,
