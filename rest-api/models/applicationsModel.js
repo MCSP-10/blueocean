@@ -17,6 +17,30 @@ applicationsModel.getAllForUser = async (userId) => {
     return applications;
 };
 
+applicationsModel.getApplicationById = async (appId) => {
+    const application = await db.oneOrNone(
+        `SELECT
+            application_id AS "id",
+            company, 
+            job_title AS "title",
+            deadline,
+            post_url AS "url",
+            description,
+            note,
+            status,
+            salary,
+            location 
+            FROM applications 
+            WHERE application_id=$(appId)
+            ORDER BY id;`,
+        { appId }
+    );
+    const { id } = application;
+    application.comments = await commentsModel.getAll(id);
+    application.updates = await updatesModel.getAll(id);
+    return application;
+};
+
 applicationsModel.createApplication = async (applicationObj) => {
     const insertQuery = helpers.insert(applicationObj, null, 'applications');
     const newApplication = await db.one(

@@ -9,6 +9,7 @@ const applications = new Router();
 applications.use(json());
 
 applications.get('/', authorization, applicationsController.getApplications);
+applications.get('/:id', authorization, applicationsController.getApplication);
 
 applications.post(
     '/',

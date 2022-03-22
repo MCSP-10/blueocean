@@ -10,6 +10,12 @@ applicationsController.getApplications = async (req, res) => {
     res.status(200).json(applications);
 };
 
+applicationsController.getApplication = async (req, res) => {
+    const appId = req.params.id;
+    const application = await applicationsModel.getApplicationById(appId);
+    res.status(200).json(application);
+};
+
 applicationsController.createApplication = async (req, res) => {
     const application = await applicationsModel.createApplication({
         user_id: req.user.id,
