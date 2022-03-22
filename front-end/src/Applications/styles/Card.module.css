@@ -1,6 +1,65 @@
-.component {
+/* .component {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+.columnTitle {
+    color: #293241;
+}
+.addAppButton{
+    transition: all .5s ease;
+}
+.addAppButton:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.hoverBox {
+    width: 95%;
+    height: 50px;
+    background-color: grey;
+}
+
+.card {
     box-sizing: border-box;
     border-radius: 0.2em;
+    padding: 10px;
+    background-color: #B4C0C6;
+    color: #293241;
+    width: 95%;
+    overflow: hidden;
+    font-size: 80%;
+    margin: 8px 0px;
+    display: grid;
+    min-height: 100px;
+    grid-template-columns: 50px auto;
+    grid-template-rows: 1em auto;
+    grid-template-areas:
+        'logo company'
+        'logo position';
+}
+
+.card:hover {
+    cursor: grab;
+    background-color: #6F7984;
+    color: #293241;
+}
+.component img {
+    height: 40px;
+    grid-area: logo;
+} */
+
+.component {
+    box-sizing: border-box;
+    border-radius: 0.5em;
     padding: 10px;
     background-color: lightgrey;
     width: 95%;
@@ -17,8 +76,23 @@
 }
 
 .component:hover {
+    cursor: grab;
+    background-color: #6f7984;
 }
 .component img {
-    height: 40px;
+    height: 50px;
     grid-area: logo;
+    border-radius: 50%;
+}
+
+.companyName {
+    text-align: center;
+    color: var(--darkBlue);
+    font-size: 1.8rem;
+}
+.subText {
+    margin-top: 25%;
+    color: var(--olive);
+    font-size: 1rem;
+    text-align: center;
 }

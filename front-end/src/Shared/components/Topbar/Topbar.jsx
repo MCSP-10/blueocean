@@ -25,6 +25,7 @@ export default function Topbar() {
             <Link to={'/home'}>
                 <img src={logo} className={styles.logo}></img>
             </Link>
+            {/* <h1 className={styles.title}>logo</h1> */}
             <h1 className={styles.title}>{quote[today.getDay()]}</h1>
             <Button
                 text="Logout"

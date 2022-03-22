@@ -12,11 +12,15 @@
     height: 100%;
 }
 .columnTitle {
+    color: var(--darkBlue);
 }
 .addAppButton:hover {
     cursor: pointer;
 }
-
+.addAppButton {
+    background-color: var(--mainOrange);
+    border-radius: 50%;
+}
 .hoverBox {
     width: 95%;
     height: 50px;

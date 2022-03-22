@@ -25,7 +25,7 @@ const Column = (props) => {
             <h2 className={styles.columnTitle}>{name}</h2>
             <BsPlusCircleFill
                 size={30}
-                color={'grey'}
+                color={'#3c5a68'}
                 className={styles.addAppButton}
                 onClick={() => setShowModal(true)}
             />

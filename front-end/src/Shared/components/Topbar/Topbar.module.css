@@ -7,6 +7,7 @@
     padding: 0 20px;
     height: 100%;
     border-bottom: 2px solid var(--mainOrange);
+    /* background-image: linear-gradient(to left, #EE6C4D, #E0FBFC) ; */
 }
 
 .logo {
@@ -17,4 +18,5 @@
 
 .title {
     color: var(--mainOrange);
+    /* -webkit-text-stroke: .01px var(--olive); */
 }
