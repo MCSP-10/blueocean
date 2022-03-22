@@ -8,26 +8,16 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-    const token = window.localStorage.getItem('token');
-    const [isLoggedIn, setIsLoggedIn] = useState(!!token);
+    const initialToken = window.localStorage.getItem('token');
+    const [isLoggedIn, setIsLoggedIn] = useState(!!initialToken);
     const [user, setUser] = useState();
 
     const login = async (email, password) => {
-        const response = await fetch('http://localhost:3001/users/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email,
-                password,
-            }),
-        });
+        const { token } = await Api.users.login(email, password);
 
-        if (response.status === 400) return false;
+        if (!token) return false;
 
-        const data = await response.json();
-        window.localStorage.setItem('token', data.token);
+        window.localStorage.setItem('token', token);
         setIsLoggedIn(() => true);
         return true;
     };
@@ -43,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     useEffect(async () => {
-        if (token && !user) {
+        if (initialToken && !user) {
             const user = await getUser();
             setUser(user);
         }

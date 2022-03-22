@@ -1,6 +1,4 @@
 FROM node:17-alpine3.14 as dev
-ARG api_base_url=http://localhost:3001
-ENV REACT_APP_BASE_API_URL=$api_base_url
 WORKDIR /app
 COPY package.json package.json
 COPY package-lock.json package-lock.json
@@ -9,6 +7,7 @@ COPY . .
 CMD ["npm","run","start"]
 
 FROM node:17-alpine3.14 as builder
+ENV REACT_APP_BASE_API_URL=http://143.198.168.93:3001
 WORKDIR /app
 COPY package.json package.json
 COPY package-lock.json package-lock.json 

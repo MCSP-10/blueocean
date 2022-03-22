@@ -32,6 +32,7 @@ services:
         image: bo-restapi
         build:
             context: ./rest-api
+            target: dev
         volumes:
             - ./rest-api:/app
         ports:

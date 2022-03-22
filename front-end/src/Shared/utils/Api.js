@@ -1,7 +1,7 @@
 import { getToken } from 'Shared/utils/token';
 
 const Api = {};
-const API_URL = 'http://localhost:3001';
+const API_URL = process.env.REACT_APP_BASE_API_URL;
 
 const request = (method, endpoint, body) => {
     const token = getToken();
@@ -17,6 +17,8 @@ const request = (method, endpoint, body) => {
 };
 Api.users = {
     get: () => request('GET', '/users'),
+    login: (email, password) =>
+        request('POST', '/users/login', { email, password }),
 };
 
 Api.opportunities = {
