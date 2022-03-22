@@ -20,6 +20,7 @@ services:
         image: bo-frontend
         build:
             context: ./front-end
+            target: dev
         environment:
             - REACT_APP_BASE_API_URL=http://localhost:3001
         volumes:
