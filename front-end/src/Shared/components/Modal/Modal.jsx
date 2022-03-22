@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import styles from './Modal.module.css';
+import closeBtn from 'Shared/assets/closeBtn.svg';
 
 export default function Modal({ element, open, onClose }) {
     if (!open) return null;
@@ -10,7 +11,10 @@ export default function Modal({ element, open, onClose }) {
             <div className={styles.container}>
                 <div className={styles.topBar}>
                     <button onClick={onClose} className={styles.close_btn}>
-                        Close
+                        <img
+                            className={styles.closeBtnImg}
+                            src={closeBtn}
+                        ></img>
                     </button>
                 </div>
                 <div className={styles.body}>{element}</div>

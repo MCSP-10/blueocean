@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import Button from 'Shared/components/Button/Button';
 import { applicationsContext } from 'Applications';
+import styles from './AddApplication.module.css';
 
 const AddApplication = (props) => {
     const [company, setCompany] = useState('');
@@ -25,33 +26,60 @@ const AddApplication = (props) => {
         props.afterSubmit();
     };
     return (
-        <form onSubmit={onSubmit}>
-            <label> Company Name: </label>
-            <input
-                type="text"
-                id="company"
-                name="company"
-                onChange={passValueTo(setCompany)}
-            />
-            <br />
-            <label> Position: </label>
-            <input
-                type="text"
-                id="job_title"
-                name="job_title"
-                onChange={passValueTo(setPosition)}
-            />
-            <br />
-            <label> Status: </label>
-            <select id="status" name="status" defaultValue={status}>
-                <option value="Interested">Interested</option>
-                <option value="Applying">Applying</option>
-                <option value="Interviewing">Interviewing</option>
-                <option value="Offered">Offered</option>
-                <option value="Rejected">Rejected</option>
-            </select>
-            <Button text="Create Application" color="white" />
-        </form>
+        <>
+            <h3 className={styles.title}>Add New Application</h3>
+            <hr className={styles.lineBreak}></hr>
+            <form onSubmit={onSubmit}>
+                <div className={styles.field}>
+                    <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        onChange={passValueTo(setCompany)}
+                        className={styles.inputs}
+                        placeholder=" "
+                    />
+                    <label htmlFor="company" className={styles.labels}>
+                        Company Name
+                    </label>
+                </div>
+                <div className={styles.field}>
+                    <input
+                        type="text"
+                        id="job_title"
+                        name="job_title"
+                        onChange={passValueTo(setPosition)}
+                        className={styles.inputs}
+                        placeholder=" "
+                    />
+                    <label htmlFor="job_title" className={styles.labels}>
+                        Position
+                    </label>
+                </div>
+                <label className={styles.dropDown}> STATUS: </label>
+                <select
+                    className={styles.selects}
+                    id="status"
+                    name="status"
+                    defaultValue={status}
+                >
+                    <option value="Interested">Interested</option>
+                    <option value="Applying">Applying</option>
+                    <option value="Interviewing">Interviewing</option>
+                    <option value="Offered">Offered</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+                <br />
+                <br />
+                <div className={styles.button}>
+                    <Button
+                        text="Create Application"
+                        color="orange"
+                        textColor={'chocolate'}
+                    />
+                </div>
+            </form>
+        </>
     );
 };
 

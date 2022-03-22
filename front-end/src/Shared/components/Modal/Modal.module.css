@@ -14,18 +14,26 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--backGroundWhite);
+    background-color: var(--offWhite);
     border-radius: 0.25rem;
 }
 
 .topBar {
-    background-color: lightgrey;
+    background-color: var(--mainBlue);
     padding: 0.2em;
     display: flex;
     flex-direction: row;
     justify-content: end;
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
+}
+
+.closeBtnImg {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: 0.2rem;
+    margin-right: 0.2rem;
+    margin-bottom: -0.5rem;
 }
 .close_btn:hover {
     cursor: pointer;

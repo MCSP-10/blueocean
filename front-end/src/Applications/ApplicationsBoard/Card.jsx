@@ -15,8 +15,6 @@ const Card = (props) => {
         }),
     });
 
-    console.log(props.subText);
-
     return (
         <>
             <div
