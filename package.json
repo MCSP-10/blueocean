@@ -7,13 +7,14 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "format": "prettier . --write",
         "buildup": "docker compose -f docker-compose-development.yml up -d --build",
         "builddown": "docker compose -f docker-compose-development.yml down",
         "migrate:new": "docker run --rm -it --network=host -v \"$(pwd)/db:/db\" ghcr.io/amacneil/dbmate:1 new",
         "migrate": "docker run --rm -it --network=host -v \"$(pwd)/db:/db\" ghcr.io/amacneil/dbmate:1 --url \"postgres://app:test@localhost:5435/blueocean?sslmode=disable\" migrate",
-        "dbrepl": "docker exec -it postgres psql -U app -d blueocean"
+        "dbrepl": "docker exec -it postgres psql -U app -d blueocean",
+        "testenv":"SECRET=1234 DATABASE_URL=postgres://app:test@localhost:5435/blueocean node --experimental-vm-modules node_modules/jest/bin/jest.js"
     },
     "repository": {
         "type": "git",
@@ -26,5 +27,9 @@
         "url": "https://gitlab.com/m7093/blue-ocean/issues"
     },
     "homepage": "https://gitlab.com/m7093/blue-ocean#readme",
-    "description": ""
+    "description": "",
+    "devDependencies": {
+        "jest": "^28.1.0",
+        "supertest": "^6.2.3"
+    }
 }
