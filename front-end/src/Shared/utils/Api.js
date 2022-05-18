@@ -30,6 +30,8 @@ Api.applications = {
     setStatus: (id, status) =>
         request('PATCH', '/applications/' + id, { status }),
     create: (body) => request('POST', '/applications', body),
+    delete: (id) =>
+        request('DELETE', '/applications/' + id),
 };
 Api.auth = {
     post: (body) => request('POST', '/users/'),

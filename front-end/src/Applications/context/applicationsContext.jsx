@@ -23,10 +23,13 @@ export const ApplicationsProvider = ({ children }) => {
         applications.push(newApp);
         setApplications([...applications]);
     };
+    const deleteApplication = async (id) => {
+        const index = applications.findIndex((app) => app.id === id)
+        applications.splice(index,1);
+        setApplications([...applications]);
+    };
 
-    useEffect(getApplications, []);
-
-    const exports = { applications, changeStatus, createApplication };
+    const exports = { applications, changeStatus, createApplication,deleteApplication };
     return (
         <applicationsContext.Provider value={exports}>
             {children}
