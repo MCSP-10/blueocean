@@ -9,6 +9,7 @@ import { useState, useContext } from 'react';
 
 const Column = (props) => {
     const { name, items } = props;
+    
     const { changeStatus } = useContext(applicationsContext);
     const [showModal, setShowModal] = useState(false);
 
@@ -21,7 +22,7 @@ const Column = (props) => {
     });
 
     return (
-        <div className={styles.column} ref={drop}>
+        <div data-testid="app-column" className={styles.column} ref={drop}>
             <h2 className={styles.columnTitle}>{name}</h2>
             <BsPlusCircleFill
                 size={30}

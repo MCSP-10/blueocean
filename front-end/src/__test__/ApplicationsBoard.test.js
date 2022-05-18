@@ -13,7 +13,8 @@ describe('ApplicationsBoard Component', () => {
     );
 
     it('Displays columns titles', () => {
-        const titles = screen.getByTestId('app-column');
+        const titles = screen.getByTestId('app-column-title');
+        // console.log(titles.textContent);
         expect(titles).toBeInTheDocument();
         expect(titles.textContent).toBe('InterestedApplyingInterviewingOfferedRejected');
     });
