@@ -12,12 +12,14 @@ comments.post(
     validate(commentsSchema.post),
     commentsController.createComment
 );
+
 comments.patch(
     '/:commentId',
     authorization,
     validate(commentsSchema.update),
     commentsController.updateComment
 );
+
 comments.delete('/:commentId', authorization, commentsController.deleteComment);
 
 export default comments;

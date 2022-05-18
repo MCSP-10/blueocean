@@ -5,7 +5,8 @@ import ApplicationDetails from 'Applications/ApplicationDetails';
 import { useDrag } from 'react-dnd';
 
 const Card = (props) => {
-    const { id } = props;
+    // console.log(props)
+    const { id, name, subText, url, note } = props;
     const [showModal, setShowModal] = useState(false);
     const [{ isDragging }, drag] = useDrag({
         type: 'card',
@@ -32,7 +33,14 @@ const Card = (props) => {
             <Modal
                 open={showModal}
                 onClose={() => setShowModal(false)}
-                element={<ApplicationDetails id={id} />}
+                element={<ApplicationDetails 
+                            id={id}
+                            name={name}
+                            subText={subText}
+                            url={url}
+                            note={note}
+                            image={props.logo}
+                             />}
             />
         </>
     );

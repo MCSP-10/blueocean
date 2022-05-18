@@ -12,7 +12,9 @@ export default function Board() {
     const columns = [
         'Interested',
         'Applying',
-        'Interviewing',
+        'Phone Interview',
+        'Technical Interview',
+        'Final Interview',
         'Offered',
         'Rejected',
     ];

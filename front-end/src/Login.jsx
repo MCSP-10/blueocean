@@ -72,7 +72,7 @@ export default function RegLogin() {
                         <h1 className={`${styles.headers} ${styles.h1s}`}>
                             Create Account
                         </h1>
-                        <div>
+                        <div>First Name
                             <input
                                 className={styles.inputs}
                                 type="text"
@@ -80,7 +80,7 @@ export default function RegLogin() {
                                 ref={firstNameRef}
                             />
                         </div>
-                        <div>
+                        <div>Last Name
                             <input
                                 className={styles.inputs}
                                 type="text"
@@ -88,7 +88,7 @@ export default function RegLogin() {
                                 ref={lastNameRef}
                             />
                         </div>
-                        <div>
+                        <div>Email
                             <input
                                 className={styles.inputs}
                                 type="text"
@@ -96,7 +96,7 @@ export default function RegLogin() {
                                 ref={registerEmailRef}
                             />
                         </div>
-                        <div>
+                        <div>Password
                             <input
                                 className={styles.inputs}
                                 type="password"
@@ -148,7 +148,7 @@ export default function RegLogin() {
                         <h1 className={`${styles.headers} ${styles.h1s}`}>
                             Sign in
                         </h1>
-                        <div>
+                        <div>Email
                             <input
                                 className={styles.inputs}
                                 type="text"
@@ -156,7 +156,7 @@ export default function RegLogin() {
                                 ref={signinEmailRef}
                             />
                         </div>
-                        <div>
+                        <div>Password
                             <input
                                 className={styles.inputs}
                                 type="password"
