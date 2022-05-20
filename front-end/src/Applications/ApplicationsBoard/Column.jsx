@@ -22,7 +22,7 @@ const Column = (props) => {
     });
 
     return (
-        <div data-testid="app-column" className={styles.column} ref={drop}>
+        <div className={styles.column} ref={drop}>
             <h2 className={styles.columnTitle}>{name}</h2>
             <BsPlusCircleFill
                 size={30}

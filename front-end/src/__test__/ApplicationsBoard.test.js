@@ -3,7 +3,6 @@ import "@testing-library/jest-dom";
 import { ApplicationsBoard } from 'Applications';
 import { ApplicationsProvider } from 'Applications';
 
-
 describe('ApplicationsBoard Component', () => {
     
     render(
@@ -12,9 +11,11 @@ describe('ApplicationsBoard Component', () => {
         </ApplicationsProvider>
     );
 
-    it('Displays columns titles', () => {
+    it('Displays column titles', () => {
         const titles = screen.getByTestId('app-column-title');
+
         // console.log(titles.textContent);
+        
         expect(titles).toBeInTheDocument();
         expect(titles.textContent).toBe('InterestedApplyingInterviewingOfferedRejected');
     });

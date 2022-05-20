@@ -15,9 +15,12 @@ const Card = (props) => {
         }),
     });
 
+    // console.log(props);
+
     return (
         <>
             <div
+                data-testid="app-card"
                 className={styles.component}
                 onClick={() => setShowModal(true)}
                 style={{
