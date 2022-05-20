@@ -149,7 +149,7 @@ CREATE TABLE public.schema_migrations (
 
 CREATE TABLE public.updates (
     update_id integer NOT NULL,
-    application_id integer,
+    application_id integer NOT NULL,
     body text,
     "timestamp" date
 );
