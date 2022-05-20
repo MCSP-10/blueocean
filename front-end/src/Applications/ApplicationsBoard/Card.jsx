@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import styles from 'Applications/styles/Card.module.css';
 import Modal from 'Shared/components/Modal';
 import ApplicationDetails from 'Applications/ApplicationDetails';
