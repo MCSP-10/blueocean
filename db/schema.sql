@@ -149,7 +149,7 @@ CREATE TABLE public.schema_migrations (
 
 CREATE TABLE public.updates (
     update_id integer NOT NULL,
-    application_id integer NOT NULL,
+    application_id integer,
     body text,
     "timestamp" date
 );
@@ -354,9 +354,11 @@ ALTER TABLE ONLY public.groups
 --
 -- Name: updates updates_application_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
+-- ALTER TABLE ONLY public.updates
+--     ADD CONSTRAINT updates_application_id_fkey FOREIGN KEY (application_id) REFERENCES public.applications(application_id) DROP NOT NULL;
 
 ALTER TABLE ONLY public.updates
-    ADD CONSTRAINT updates_application_id_fkey FOREIGN KEY (application_id) REFERENCES public.applications(application_id);
+    ADD CONSTRAINT updates_application_id_fkey FOREIGN KEY (application_id) REFERENCES public.applications(application_id) DROP NOT NULL ON DELETE CASCADE;
 
 
 --

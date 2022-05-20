@@ -25,10 +25,11 @@ export const ApplicationsProvider = ({ children }) => {
     };
     const deleteApplication = async (id) => {
         const index = applications.findIndex((app) => app.id === id)
-        applications.splice(index,1);
+        applications.splice(index,1)
+        await Api.applications.delete(id)
         setApplications([...applications]);
     };
-
+    useEffect(getApplications, []);
     const exports = { applications, changeStatus, createApplication,deleteApplication };
     return (
         <applicationsContext.Provider value={exports}>
