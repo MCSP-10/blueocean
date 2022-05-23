@@ -350,10 +350,10 @@ ALTER TABLE ONLY public.comments
 ALTER TABLE ONLY public.groups
     ADD CONSTRAINT groups_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(user_id);
 
+
 --
 -- Name: updates updates_application_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
-
 
 ALTER TABLE ONLY public.updates
     ADD CONSTRAINT updates_application_id_fkey FOREIGN KEY (application_id) REFERENCES public.applications(application_id);
