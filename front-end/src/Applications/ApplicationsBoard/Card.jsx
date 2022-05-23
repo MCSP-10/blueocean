@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import styles from 'Applications/styles/Card.module.css';
 import Modal from 'Shared/components/Modal';
 import ApplicationDetails from 'Applications/ApplicationDetails';
 import { useDrag } from 'react-dnd';
+import DeleteApplication from '../DeleteApplication';
 
 const Card = (props) => {
     const { id } = props;
@@ -32,6 +33,7 @@ const Card = (props) => {
                 <img className={styles.logo} src={props.logo} />
                 <h3 className={styles.companyName}>{props.name}</h3>
                 <h3 className={styles.subText}>{props.subText}</h3>
+                <DeleteApplication className="delete" task_id={id}  />
             </div>
             <Modal
                 open={showModal}
