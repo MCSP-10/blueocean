@@ -7,6 +7,7 @@ import { useDrag } from 'react-dnd';
 const Card = (props) => {
     const { id } = props;
     const [showModal, setShowModal] = useState(false);
+    // console.log(showModal);
     const [{ isDragging }, drag] = useDrag({
         type: 'card',
         item: { id },
