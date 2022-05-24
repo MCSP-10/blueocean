@@ -31,8 +31,8 @@ const Card = (props) => {
                 ref={drag}
             >
                 <div className="card-header">
-                    <img className="card-logo" src={props.logo} />
-                    <DeleteApplication className="delete" task_id={id}  />
+                    <img className={styles.cardLogo} src={props.logo} />
+                    <DeleteApplication className={styles.delete} task_id={id}  />
                 </div>
                 <span>
                     <h3 className={styles.companyName}>{props.name}</h3>

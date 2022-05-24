@@ -30,10 +30,14 @@
     font-size: 1rem;
 }
 
-.component img {
-    height: 2em;
-}
-
 .component span {
     padding-left: .1em;
+}
+
+.cardLogo {
+    height: 3em;
+}
+
+.delete {
+    height: 2em;
 }
