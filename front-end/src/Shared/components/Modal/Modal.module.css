@@ -45,3 +45,8 @@
     padding: 1em;
     z-index: 100;
 }
+
+.appDetails{
+    display: flex;
+    flex-direction: row;
+}

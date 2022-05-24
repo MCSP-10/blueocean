@@ -6,7 +6,8 @@ import { useDrag } from 'react-dnd';
 import DeleteApplication from '../DeleteApplication';
 
 const Card = (props) => {
-    const { id } = props;
+    // console.log(props)
+    const { id, name, subText, url, note } = props;
     const [showModal, setShowModal] = useState(false);
     // console.log(showModal);
     const [{ isDragging }, drag] = useDrag({
@@ -42,7 +43,14 @@ const Card = (props) => {
             <Modal
                 open={showModal}
                 onClose={() => setShowModal(false)}
-                element={<ApplicationDetails id={id} />}
+                element={<ApplicationDetails 
+                            id={id}
+                            name={name}
+                            subText={subText}
+                            url={url}
+                            note={note}
+                            image={props.logo}
+                             />}
             />
         </>
     );
