@@ -26,7 +26,7 @@ beforeRegister(async () => {
 
 describe('Add user to database with auth', () => {
   console.log(token, 'get token')
-  test('should respond with company name Google', async () => {
+  test.only('should respond with company name Google', async () => {
     const response = await supertest(app)
       .get('/applications')
       .set('Authorization', `Bearer ${token}`);
