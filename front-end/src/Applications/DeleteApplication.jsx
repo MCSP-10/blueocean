@@ -1,6 +1,6 @@
 import React,{ useContext} from 'react';
 import { applicationsContext } from 'Applications';
-
+import closeBtn from 'Shared/assets/closeBtn.svg';
 
 
 
@@ -11,9 +11,9 @@ const DeleteApplication = (props) => {
         
         await deleteApplication(id)
     }
-  
+
     return (
-        <button className='delete' onClick={deleteTask}><img src="https://cdn-icons-png.flaticon.com/128/3221/3221803.png"/></button>
+        <button className="delete" onClick={deleteTask}><img className="delete" src={closeBtn}/></button>
     );
 };
 

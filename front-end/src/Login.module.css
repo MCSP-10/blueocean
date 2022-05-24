@@ -84,7 +84,7 @@
 }
 
 ::placeholder {
-    color: var(--darkChocolate);
+    color: var(--darkGray);
 }
 
 .container {

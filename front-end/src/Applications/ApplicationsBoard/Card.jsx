@@ -30,10 +30,14 @@ const Card = (props) => {
                 }}
                 ref={drag}
             >
-                <img className={styles.logo} src={props.logo} />
-                <h3 className={styles.companyName}>{props.name}</h3>
-                <h3 className={styles.subText}>{props.subText}</h3>
-                <DeleteApplication className="delete" task_id={id}  />
+                <div className="card-header">
+                    <img className="card-logo" src={props.logo} />
+                    <DeleteApplication className="delete" task_id={id}  />
+                </div>
+                <span>
+                    <h3 className={styles.companyName}>{props.name}</h3>
+                    <h3 className={styles.subText}>{props.subText}</h3>
+                </span>
             </div>
             <Modal
                 open={showModal}
