@@ -21,6 +21,11 @@ export const AuthProvider = ({ children }) => {
         setIsLoggedIn(() => true);
         return true;
     };
+    const register = async (first, last, email, password, role) => {
+        const {registered} = await Api.users.register(first, last, email, password, role);
+
+
+    }
 
     const logout = () => {
         window.localStorage.removeItem('token');
@@ -39,7 +44,7 @@ export const AuthProvider = ({ children }) => {
         }
     });
 
-    const auth = { login, logout, user, isLoggedIn };
+    const auth = {register, login, logout, user, isLoggedIn };
 
     return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 };
