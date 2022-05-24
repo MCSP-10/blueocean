@@ -9,8 +9,8 @@
     "scripts": {
         "test": "jest",
         "format": "prettier . --write",
-        "buildup": "docker compose -f docker-compose-development.yml up -d --build",
-        "builddown": "docker compose -f docker-compose-development.yml down",
+        "buildup": "docker compose -f docker-compose.yml up -d --build",
+        "builddown": "docker compose -f docker-compose.yml down",
         "migrate:new": "docker run --rm -it --network=host -v \"$(pwd)/db:/db\" ghcr.io/amacneil/dbmate:1 new",
         "migrate": "docker run --rm -it --network=host -v \"$(pwd)/db:/db\" ghcr.io/amacneil/dbmate:1 --url \"postgres://app:test@localhost:5435/blueocean?sslmode=disable\" migrate",
         "dbrepl": "docker exec -it postgres psql -U app -d blueocean",
