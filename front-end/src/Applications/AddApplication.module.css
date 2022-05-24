@@ -62,7 +62,7 @@
 }
 
 ::-webkit-input-placeholder {
-    opacity: 0;
+    opacity: 1;
     transition: inherit;
 }
 

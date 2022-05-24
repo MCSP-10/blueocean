@@ -21,6 +21,11 @@ Api.users = {
         request('POST', '/users/login', { email, password }),
 };
 
+Api.register = {
+    register: (first, last, email, password, role) =>
+         request('POST', '/users/register', {first, last, email, password, role}),
+};
+
 Api.opportunities = {
     getAllByGroup: (group) => request('GET', '/opportunities/' + group),
 };
@@ -30,6 +35,8 @@ Api.applications = {
     setStatus: (id, status) =>
         request('PATCH', '/applications/' + id, { status }),
     create: (body) => request('POST', '/applications', body),
+    delete: (id) =>
+        request('DELETE', '/applications/'+id),
 };
 Api.auth = {
     post: (body) => request('POST', '/users/'),
