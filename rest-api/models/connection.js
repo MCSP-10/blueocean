@@ -4,6 +4,7 @@ if (!process.env.DATABASE_URL) {
     console.error('No DATABASE_URL found');
     process.exit();
 }
+console.log(process.env.DATABASE_URL, 'this is the database url!')
 
 const initOptions = {
     query(e) {
