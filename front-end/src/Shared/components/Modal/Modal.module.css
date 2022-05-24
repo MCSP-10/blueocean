@@ -48,5 +48,5 @@
 
 .appDetails{
     display: flex;
-    flex-direction: row !important;
+    flex-direction: row;
 }

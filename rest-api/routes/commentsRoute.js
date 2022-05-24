@@ -6,6 +6,12 @@ import { commentsSchema } from '../ajv/index.js';
 const comments = new Router();
 comments.use(json());
 
+comments.get(
+    '/comments/:appId',
+    authorization,
+    commentsController.getAll
+);
+
 comments.post(
     '/',
     authorization,
