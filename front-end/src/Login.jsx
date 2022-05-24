@@ -39,10 +39,10 @@ export default function RegLogin() {
             navigate('/')
             return setIncorrectRegisterAttempt(true)
         }
-       if(ok){
-           alert('Registration status: Success')
-         navigate('/')
-       }
+        if(ok){
+            alert('Registration status: Success')
+            navigate('/')
+        }
     };
 
     const handleSignInSubmit = async (e) => {
@@ -87,7 +87,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="text"
-                                placeholder="First Name.."
+                                placeholder="First name"
                                 ref={firstNameRef}
                             />
                         </div>
@@ -95,7 +95,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="text"
-                                placeholder="Last Name.."
+                                placeholder="Last name"
                                 ref={lastNameRef}
                             />
                         </div>
@@ -103,7 +103,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="text"
-                                placeholder="Email.."
+                                placeholder="Email"
                                 ref={registerEmailRef}
                             />
                         </div>
@@ -111,7 +111,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="password"
-                                placeholder="Password.."
+                                placeholder="Password"
                                 ref={registerPasswordRef}
                             />
                         </div>
@@ -163,7 +163,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="text"
-                                placeholder="Email.."
+                                placeholder="Email"
                                 ref={signinEmailRef}
                             />
                         </div>
@@ -171,7 +171,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="password"
-                                placeholder="Password.."
+                                placeholder="Password"
                                 ref={signinPassRef}
                             />
                         </div>

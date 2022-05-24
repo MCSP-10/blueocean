@@ -8,6 +8,7 @@ import DeleteApplication from '../DeleteApplication';
 const Card = (props) => {
     const { id } = props;
     const [showModal, setShowModal] = useState(false);
+    // console.log(showModal);
     const [{ isDragging }, drag] = useDrag({
         type: 'card',
         item: { id },
@@ -16,9 +17,12 @@ const Card = (props) => {
         }),
     });
 
+    // console.log(props);
+
     return (
         <>
             <div
+                data-testid="app-card"
                 className={styles.component}
                 onClick={() => setShowModal(true)}
                 style={{
@@ -26,10 +30,14 @@ const Card = (props) => {
                 }}
                 ref={drag}
             >
-                <img className={styles.logo} src={props.logo} />
-                <h3 className={styles.companyName}>{props.name}</h3>
-                <h3 className={styles.subText}>{props.subText}</h3>
-                <DeleteApplication className="delete" task_id={id}  />
+                <div className="card-header">
+                    <img className={styles.cardLogo} src={props.logo} />
+                    <DeleteApplication className={styles.delete} task_id={id}  />
+                </div>
+                <span>
+                    <h3 className={styles.companyName}>{props.name}</h3>
+                    <h3 className={styles.subText}>{props.subText}</h3>
+                </span>
             </div>
             <Modal
                 open={showModal}

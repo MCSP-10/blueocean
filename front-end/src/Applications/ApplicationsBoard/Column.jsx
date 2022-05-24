@@ -9,6 +9,7 @@ import { useState, useContext } from 'react';
 
 const Column = (props) => {
     const { name, items } = props;
+    
     const { changeStatus } = useContext(applicationsContext);
     const [showModal, setShowModal] = useState(false);
 
