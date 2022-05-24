@@ -5,7 +5,7 @@
     "main": "server.js",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "dev": "nodemon server.js"
     },
     "keywords": [],
@@ -21,6 +21,8 @@
         "pg-promise": "^10.11.1"
     },
     "devDependencies": {
-        "nodemon": "^2.0.15"
+        "nodemon": "^2.0.15",
+        "jest": "^28.1.0",
+        "supertest": "^6.2.3"
     }
 }
