@@ -356,7 +356,7 @@ ALTER TABLE ONLY public.groups
 --
 
 ALTER TABLE ONLY public.updates
-    ADD CONSTRAINT updates_application_id_fkey FOREIGN KEY (application_id) REFERENCES public.applications(application_id);
+    ADD CONSTRAINT updates_application_id_fkey FOREIGN KEY (application_id) REFERENCES public.applications(application_id) DROP NO NULL ON DELETE CASCADE;
 
 
 --
