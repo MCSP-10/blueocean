@@ -4,21 +4,25 @@
     height: 100%;
     margin-right: .5em;
 }
+
 .column {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    width: 250px;
+    width: 14%;
+    min-width: 300px;
     height: 98%;
     padding-left: .5em;
     padding-right: .5em;
-    margin: .5em .5em .5em .5em;
+    margin: 1em 1em 1em 1em;
     border-width: 10px;
     border-right-color: green;
     border-radius: 10px;
-    background-color: rgb(215, 215, 215);
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    background-color: rgba(4, 3, 3, 0.04);
+    opacity: 1;
+    /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); */
+    overflow: scroll;
 }
 
 .column h2 {
@@ -30,13 +34,16 @@
 .columnTitle {
     color: rgb(60, 64, 67);
 }
+
 .addAppButton:hover {
     cursor: pointer;
 }
+
 .addAppButton {
     background-color: var(--mainOrange);
     border-radius: 50%;
 }
+
 .hoverBox {
     width: 95%;
     height: 50px;

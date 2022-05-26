@@ -1,25 +1,29 @@
 .container {
-    display: grid;
-    grid-template-columns: 12rem auto;
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: 12rem auto;
     grid-template-rows: 5rem auto;
     grid-template-areas:
         'sidebar topbar'
-        'sidebar viewArea';
-    height: 100vh;
+        ' viewArea'; */
+    height: 100%;
+    width: 100%;
     background-color: rgb(255, 255, 255);
 }
 
-.topBar {
+/* .topBar {
     grid-area: topbar;
-}
+} */
 
-.sideBar {
+/* .sideBar {
     height: calc(100vh - 2rem);
     grid-area: sidebar;
-}
+} */
 
 .viewArea {
     grid-area: viewArea;
     overflow-x: scroll;
-    margin-right: .5em;
+    margin: 15px;
+    height: 100%;
+    width: 99%;
 }

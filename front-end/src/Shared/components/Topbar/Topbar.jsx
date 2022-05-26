@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import Button from 'Shared/components/Button/Button';
 import { useAuth } from 'Shared/services/Auth.js';
 import logo from 'Shared/assets/cazadorLogo.svg';
+import { GoMegaphone } from 'react-icons/go';
+import { RiNewspaperLine } from 'react-icons/ri';
 
 export default function Topbar() {
     const { logout } = useAuth();
@@ -22,6 +24,22 @@ export default function Topbar() {
 
     return (
         <nav className={styles.container}>
+            <div className={styles.menu}>
+            <Link to={'/applications'}>
+                <Button
+                    icon={<RiNewspaperLine size={30} color={'black'} />}
+                    text="Applications"
+                    textColor="black"
+                />
+            </Link>
+            <Link to={'/opportunities'}>
+                <Button
+                    icon={<GoMegaphone size={30} color={'black'} />}
+                    text="Opportunities"
+                    textColor="black"
+                />
+            </Link>
+        </div>
             <Link to={'/home'}>
                 <img src={logo} className={styles.logo}></img>
             </Link>

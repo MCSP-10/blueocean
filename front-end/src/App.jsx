@@ -11,9 +11,9 @@ import styles from './App.module.css';
 export const App = () => {
     return (
         <div className={styles.container}>
-            <div className={styles.sideBar}>
+            {/* <div className={styles.sideBar}>
                 <Sidebar />
-            </div>
+            </div> */}
             <div className={styles.topBar}>
                 <Topbar />
             </div>
