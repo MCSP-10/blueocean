@@ -31,7 +31,6 @@
 - [Built And Tested With](#built_with)
 - [Getting Started](#getting_started)
     - [Prerequisites](#prerequisites)
-    - [Installation](#install)
     - [Docker Deployment As A Swarm](#swarm_deploy)
     - [Production Deployment](#prod_deploy)
 - [Roadmap](#roadmap)
@@ -90,6 +89,9 @@ The following sections are instructions to help you with:
   npm install npm@latest -g
   ```
 
+#### Basic understanding of VIM commands
+Note: I also recommend downloading the VS Code Extension (Remote SSH) to SSH into the Droplet and open your files. [Instructions here.](https://www.howtogeek.com/devops/how-to-develop-on-a-remote-ssh-server-with-visual-studio-code/)
+
 #### Docker Desktop
 
 - [Docker Docs](https://docs.docker.com/desktop/mac/install/)
@@ -117,7 +119,9 @@ npm run buildup
 npm run builddown
 ```
 
-### Digital Ocean Deployment as Docker Swarm <a name = "install"></a>
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Digital Ocean Deployment as Docker Swarm <a name = "swarm_deploy"></a>
 
 #### Digital Ocean Droplet 
 
@@ -162,6 +166,7 @@ ssh-rsa SOME_LONG_RANDOM_STRING_WITH_YOUR_USER_AT_THE_END
 ```
 Add this key to your Droplet in the steps above so that you can SSH in as root.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 #### Add a non-root ‘user’
 
@@ -235,7 +240,34 @@ If that doesn't connect you may need to run:
 ```sh
 ssh -i ~/.ssh/<path-to-private-key> <username>@<droplet-ip-address>
 ```
+You may also need to double check that your public key is added in the droplet, if you still can't ssh into the username:
+1. Login to root and then switch to the user
+```sh
+ssh root@<ip_addres>
+su <username>
+```
+2. Navigate to the SSH directory
+```sh
+cd ~/.ssh
+```
+3. Create an authorized_keys file
+```sh
+touch authorized_keys
+```
+4. open authorized_keys file in the editor
+```sh
+vim authorized_keys
+```
+5. Paste in the droplet public ssh key
+6. Exit out of user and root
+7. Try to SSH into the user again
+```sh
+ssh <username>@<ip-address>
+```
+
 Note: once you have your domain’s DNS records set up to point at DigitalOcean’s name servers you’ll be able to SSH in with ssh deployer@yourdomain.com
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 #### Install & configure NGINX
 NGINX will allow us to route web browser requests to our dockerized apps. To install it run:
@@ -274,7 +306,14 @@ Active: active (running) since...
 ```
 And visiting http://droplet_ip_address should display the default NGINX “Welcome to nginx!” page.
 
-Next edit the nginx.conf file with sudo vim /etc/nginx/nginx.conf (replace vim with your command line editor) and uncomment server_names_hash_bucket_size 64;:
+Note: You cn now use `sudo ufw status verbose` to view the ports and additional firewall roles.
+
+Check that NGINX is running:
+```sh
+systemctl status nginx
+```
+
+Next edit the nginx.conf file with `sudo vim /etc/nginx/nginx.conf`  and uncomment server_names_hash_bucket_size 64;:
 ```sh
 http {
   ...
@@ -295,6 +334,7 @@ And then restart NGINX:
 ```sh
 sudo systemctl restart nginx
 ```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 #### Install Docker in Droplet
 
@@ -309,9 +349,9 @@ sudo systemctl restart nginx
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
     sudo add-apt-repository \
-        \"deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
         $(lsb_release -cs) \
-        stable\"
+        stable"
 
     sudo apt-get update
 
@@ -352,24 +392,97 @@ To use docker-compose to deploy to remote servers with the `--context` argument 
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0-rc2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
-Then check docker-compose is installed correctly:
+Then check that docker-compose is installed correctly:
 ```sh
 docker-compose -v
 
 # output:
-docker-compose version 1.26.0-rc1, build 07cab513
+docker-compose version ..., build ...
 ```
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### Clone the Github Repository
+Now that you have your droplet environment set up. You'll need to clone the repository from Github down into your droplet.
+
+1. Ensure you have git installed:
+```sh
+git --version
+```
+2. If not, you'll need to install it:
+```sh
+sudo apt update
+sudo apt install git
+git --version
+
+#output
+git version ...
+```
+Now you'll need to configure GitHub SSH keys on your droplet to access and clone the repository.
+
+1. First generate new SSH keys on the droplet. [GitHub's instructions here.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+2. Then add the public key to Github. [Github's instructions here.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+3. Test your connection:
+```sh
+$ ssh -T git@github.com
+# Attempts to ssh to GitHub
+Hi username! You have successfully authenticated, but GitHub does not
+provide shell access.
+```
+
+Now you can clone the repository:
+```sh
+git clone git@github.com:Blue-Oceanz/Blue-Oceanz.git
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### Ensure your docker compose is ready for swarm deployment
+1. In the root of your now cloned repository, open the docker-compose.yml. 
+Note: I recommend using VS Code for editing - the extension comes in handy here, but VIM is great too!
+2. Add the docker-compose version to the top of the file if it isn't there already
+```sh
+version: "3.8"
+```
+3. Change the frontend environment variable to the following:
+```sh
+- REACT_APP_BASE_API_URL=http://<droplet-ip-address>:3001
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 #### Domain Name
+Do you want to connect a domain name to your droplet so you don't have to type an IP address everytime you visit the link? If so...
+
+1. First you need a domain if you don't already have one. You can buy one at places like these:
 
 - [Namecheap](https://www.namecheap.com/)
 - [GoDaddy](https://www.godaddy.com/domains)
 
+2. Next, here is a helpful video showing you an easy way to connect it to your IP: https://www.youtube.com/watch?v=Wrxwm3ghQhY
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+#### Deploy w/Docker Swarm
+1. Initialize the swarm
+```sh
+docker swarm init --advertise-addr <droplet-ip-address> --lsiten-addr <droplet-ip-addres>
+```
+3. Deploy
+```sh
+docker stack deploy -c <path-to-docker-compose.yml> <app-name>
+```
+3. Check that the network and services are created and running
+```sh
+docker network ls
+docker service ls
+```
+4. Navigate to your deployed application (http://www.blueoceanz.us/ or whatever domain you configured)
+
+VIOLA!!!!
 ### Production Deployment <a name = "prod_deploy"></a>
 
-- Add production deployment details here...
+- It's been a bit quiet aound here lately ...
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
