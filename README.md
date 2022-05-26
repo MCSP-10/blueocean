@@ -24,21 +24,33 @@
 
 <p align = "center">💡 Project description and guide to getting it up and running. </p>
 
-
 ## Table of Contents
 
-- [About the Project](#about_project)
-- [Built And Tested With](#built_with)
+- [Project Description](#project_description)
+- [Built With](#built_with)
 - [Getting Started](#getting_started)
-    - [Prerequisites](#prerequisites)
-    - [Docker Deployment As A Swarm](#swarm_deploy)
-    - [Production Deployment](#prod_deploy)
+  - [Prerequisites](#prerequisites)
+  - [Local Development Set-up](#local_dev)
+  - [Digital Ocean Swarm Deployment](#swarm_deploy)
+    - [Digital Ocean Droplet](#create_droplet)
+    - [Generate SSH Keys](#ssh)
+    - [Add User](#add_user)
+    - [Configure the Firewall](#firewall)
+    - [Install NGINX](#nginx)
+    - [Install Docker](#install_docker)
+    - [Install Docker Compose](#docker_compose)
+    - [Clone the Repository](#clone_repo)
+    - [Npm Install "killed" Error](#killed)
+    - [Configure Swarm Deployment](#swarm_config)
+    - [Add Domain Name](#domain)
+    - [Reverse Proxy](#reverse_proxy)
+    - [Deploy](#deploy)
+  - [Production Deployment](#prod_deploy)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Final Note](#ps)
 
-
-## Project Description <a name = "about_project"></a>
+## I. Project Description<a id = "project_description"></a>
 
 As a career manager, you may have noticed that it is difficult to find a software solution that easily enables you to track your client's progress in the job search arena. Wouldn't it be nice to be able to see which jobs they've applied to, where they are in the application process, and all the while, have a bird's eye view of analytics and trends of the client's progress?
 
@@ -59,7 +71,7 @@ Career manager features:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Built And Tested With <a name = "built_with"></a>
+## II. Built With <a id = "built_with"></a>
 
 - [Node.js](https://nodejs.org/en/docs/)
 - [React.js](https://reactjs.org/)
@@ -73,7 +85,7 @@ Career manager features:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Getting Started <a name = "getting_started"></a>
+## III. Getting Started <a id = "getting_started"></a>
 
 The following sections are instructions to help you with:
 - Getting a local copy up and running in a few commands to start developing
@@ -82,59 +94,59 @@ The following sections are instructions to help you with:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Prerequisites <a name = "prerequisites"></a>
+### A. Prerequisites <a id = "prerequisites"></a>
 
-#### npm
+#### (1) npm
   ```sh
   npm install npm@latest -g
   ```
 
-#### Basic understanding of VIM commands
+#### (2) Basic understanding of VIM commands
 Note: I also recommend downloading the VS Code Extension (Remote SSH) to SSH into the Droplet and open your files. [Instructions here.](https://www.howtogeek.com/devops/how-to-develop-on-a-remote-ssh-server-with-visual-studio-code/)
 
-#### Docker Desktop
+#### (3) Docker Desktop
 
 - [Docker Docs](https://docs.docker.com/desktop/mac/install/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Local Development
+### B. Local Development Set-up<a id = "local_dev"></a>
 
-1. Clone the project
+- Clone the project
 ```sh
 git clone git@github.com:Blue-Oceanz/Blue-Oceanz.git
 ```
-2. Install dependencies with npm installs in each folder (root, frontend, and restapi)
+- Install dependencies with npm installs in each folder (root, frontend, and restapi)
 ```sh
 npm install
 ```
-3. To spin up the docker containers for localhost
+- To spin up the docker containers for localhost
 ```sh
 npm run buildup
 ```
-4. You can now go to localhost:3000 to see the application
+- You can now go to localhost:3000 to see the application
 
-5. To stop the docker containers
+- To stop the docker containers
 ```sh
 npm run builddown
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Digital Ocean Deployment as Docker Swarm <a name = "swarm_deploy"></a>
+### C. Digital Ocean Deployment as Docker Swarm<a id = "swarm_deploy"></a>
 
-#### Digital Ocean Droplet 
+#### (1) Digital Ocean Droplet<a id = "create_droplet"></a>
 
 First sign up at DigitialOcean and create a new project. You can name the project anything you want, this is just and identifier. Click on ‘Get Started with a Droplet’ and go through the following steps:
 
-1. Select Ubuntu 18.04.x (LTS) x64.
-2. Leave the Droplet on Standard.
-3. Select the $5 per month option, you can always upgrade if required.
-4. Skip adding block storage.
-5. Select a data center.
-6. Select additional options, I selected monitoring.
-7. Leave authentication on SSH and add your key, see steps below if you don’t have a key yet.
-8. Leave on 1 Droplet and rename it to something more memorable (optional).
+- Select Ubuntu 18.04.x (LTS) x64.
+- Leave the Droplet on Standard.
+- Select the $5 per month option, you can always upgrade if required.
+- Skip adding block storage.
+- Select a data center.
+- Select additional options, I selected monitoring.
+- Leave authentication on SSH and add your key, see steps below if you don’t have a key yet.
+- Leave on 1 Droplet and rename it to something more memorable (optional).
 
 Click on Create Droplet.
 
@@ -146,7 +158,9 @@ References:
 - [Digital Ocean](https://docs.digitalocean.com/products/droplets/how-to/create/)
 - [Deploying multiple dockerized apps](https://danielwachtel.com/devops/deploying-multiple-dockerized-apps-digitalocean-docker-compose-contexts)
 
-#### Generate SSH Keys For Droplet
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### (2) Generate SSH Keys For Droplet<a id = "ssh"></a>
 If you’re using Ubuntu on your local machine first check if you have an existing SSH key:
 ```sh
 ls -l ~/.ssh/id_*.pub
@@ -168,7 +182,7 @@ Add this key to your Droplet in the steps above so that you can SSH in as root.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-#### Add a non-root ‘user’
+#### (3) Add a non-root ‘user’<a id = "add_user"></a>
 
 Next create a non-root user to log into the server in future. First SSH into the server as root using the Droplet IP address (which you can view in your DigitalOcean dashboard):
 ```sh
@@ -206,7 +220,10 @@ Allow the new user to SSH into the server by copying the .ssh directory into the
 ```sh
 sudo rsync --archive --chown=<username>:<username> ~/.ssh /home/<username>
 ```
-#### Configure the firewall
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### (4) Configure the firewall<a id = "firewall"></a>
 Now set up a firewall using ufw and enable SSH connections. If you run ufw app list you should see OpenSSH listed in the output which is what we’ll enable with:
 ```sh
 ufw allow OpenSSH
@@ -241,26 +258,26 @@ If that doesn't connect you may need to run:
 ssh -i ~/.ssh/<path-to-private-key> <username>@<droplet-ip-address>
 ```
 You may also need to double check that your public key is added in the droplet, if you still can't ssh into the username:
-1. Login to root and then switch to the user
+- Login to root and then switch to the user
 ```sh
 ssh root@<ip_addres>
 su <username>
 ```
-2. Navigate to the SSH directory
+- Navigate to the SSH directory
 ```sh
 cd ~/.ssh
 ```
-3. Create an authorized_keys file
+- Create an authorized_keys file
 ```sh
 touch authorized_keys
 ```
-4. open authorized_keys file in the editor
+- open authorized_keys file in the editor
 ```sh
 vim authorized_keys
 ```
-5. Paste in the droplet public ssh key
-6. Exit out of user and root
-7. Try to SSH into the user again
+- Paste in the droplet public ssh key
+- Exit out of user and root
+- Try to SSH into the user again
 ```sh
 ssh <username>@<ip-address>
 ```
@@ -269,7 +286,7 @@ Note: once you have your domain’s DNS records set up to point at DigitalOcean�
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-#### Install & configure NGINX
+#### (5) Install & configure NGINX<a id = "nginx"></a>
 NGINX will allow us to route web browser requests to our dockerized apps. To install it run:
 ```sh
 sudo apt-get update
@@ -336,7 +353,7 @@ sudo systemctl restart nginx
 ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-#### Install Docker in Droplet
+#### (6) Install Docker in Droplet<a id = "install_docker"></a>
 
   ```sh
     sudo apt-get install \
@@ -386,7 +403,9 @@ OPTIONAL: If you want to run docker commands without sudo, you can run the follo
 
 NOTE: You may need to also download docker compose for your local machine and droplet
 
-#### Install docker-compose
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### (7) Install docker-compose<a id = "docker_compose"></a>
 To use docker-compose to deploy to remote servers with the `--context` argument we need to install release 1.26.0-rc2 or later. If the latest stable version here is under 1.26.0-rc2 then follow the instructions below, otherwise you can substitute the release number in the URL to the latest stable version. [Official installation docs can be found here](https://docs.docker.com/compose/install/).
 ```sh
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0-rc2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -401,14 +420,14 @@ docker-compose version ..., build ...
 ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-#### Clone the Github Repository
+#### (8) Clone the Github Repository <a id = "clone_repo"></a>
 Now that you have your droplet environment set up. You'll need to clone the repository from Github down into your droplet.
 
-1. Ensure you have git installed:
+Ensure you have git installed:
 ```sh
 git --version
 ```
-2. If not, you'll need to install it:
+If not, you'll need to install it:
 ```sh
 sudo apt update
 sudo apt install git
@@ -419,9 +438,9 @@ git version ...
 ```
 Now you'll need to configure GitHub SSH keys on your droplet to access and clone the repository.
 
-1. First generate new SSH keys on the droplet. [GitHub's instructions here.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-2. Then add the public key to Github. [Github's instructions here.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-3. Test your connection:
+First generate new SSH keys on the droplet. [GitHub's instructions here.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+Then add the public key to Github. [Github's instructions here.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+Test your connection:
 ```sh
 $ ssh -T git@github.com
 # Attempts to ssh to GitHub
@@ -434,61 +453,170 @@ Now you can clone the repository:
 git clone git@github.com:Blue-Oceanz/Blue-Oceanz.git
 ```
 
+Finally, you'll need to install all the project's dependencies
+```sh
+#In project root folder
+npm install
+
+#In project restapi folder
+npm install
+
+#In project frontend folder
+npm install
+```
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-#### Ensure your docker compose is ready for swarm deployment
-1. In the root of your now cloned repository, open the docker-compose.yml. 
+#### (9) Npm Install "Killed" Error<a id = "killed"></a>
+The issue is commonly caused in your droplet because you have run out of RAM. You can use a swapfile to fix this. Swap is an designated area on a hard drive where the operating system temporary stores data when it runs out of RAM.
+
+This works on Ubuntu14.04, Ubuntu16.04 and Ubuntu18.04. These commands will create a 1GB swapfile. In your droplet console run the following:
+
+```sh
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo swapon --show
+sudo cp /etc/fstab /etc/fstab.bak
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+sudo sysctl vm.swappiness=10
+echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
+sudo sysctl vm.vfs_cache_pressure=50
+echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.conf
+```
+
+Now run `npm install` again and it should work.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### (10) Prep Docker Compose For Swarm Deployment<a id = "swarm_config"></a>
+In the root of your now cloned repository, open the docker-compose.yml. 
+
 Note: I recommend using VS Code for editing - the extension comes in handy here, but VIM is great too!
-2. Add the docker-compose version to the top of the file if it isn't there already
+
+Add the docker-compose version to the top of the file if it isn't there already
 ```sh
 version: "3.8"
 ```
-3. Change the frontend environment variable to the following:
+Change the frontend environment variable to the following:
 ```sh
 - REACT_APP_BASE_API_URL=http://<droplet-ip-address>:3001
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-#### Domain Name
+#### (11) Domain Name<a id = "domain"></a>
 Do you want to connect a domain name to your droplet so you don't have to type an IP address everytime you visit the link? If so...
 
-1. First you need a domain if you don't already have one. You can buy one at places like these:
+First you need a domain if you don't already have one. You can buy one at places like these:
 
 - [Namecheap](https://www.namecheap.com/)
 - [GoDaddy](https://www.godaddy.com/domains)
 
-2. Next, here is a helpful video showing you an easy way to connect it to your IP: https://www.youtube.com/watch?v=Wrxwm3ghQhY
-
+Next, here is a helpful video showing you an easy way to connect it to your IP: https://www.youtube.com/watch?v=Wrxwm3ghQhY
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-#### Deploy w/Docker Swarm
-1. Initialize the swarm
+#### (12) Reverse Proxy w/NGINX<a id = "reverse_proxy"></a>
+You will now need to ensure that your domain name is directing the user to port 3000 by adding a reverse proxy using NGINX.
+
+Navigate to the sites-available folder in your droplet, create a new file, and open it in your editor
+```sh
+cd /etc/nginx/sites-available
+sudo touch <newfile-name>
+sudo vim <newfile-name>
+```
+Add the reverse proxy information
+```sh
+server {
+  listen 80;
+  server_name yourdomain.com www.yourdomain.com
+
+  location /{
+    proxy_pass http://localhost:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}
+```
+Navigate to the sites-enabled file, enable it, and restart
+```sh
+#navigate and enable
+cd /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/blueoceanz ./
+
+#check that it worked
+ls -l
+sudo nginx -t
+
+#restart
+sudo systemctl restart nginx
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### (13) Deploy w/Docker Swarm<a id = "deploy"></a>
+Initialize the swarm
 ```sh
 docker swarm init --advertise-addr <droplet-ip-address> --lsiten-addr <droplet-ip-addres>
 ```
-3. Deploy
+Deploy
 ```sh
 docker stack deploy -c <path-to-docker-compose.yml> <app-name>
 ```
-3. Check that the network and services are created and running
+Check that the network and services are created and running
 ```sh
 docker network ls
 docker service ls
 ```
-4. Navigate to your deployed application (http://www.blueoceanz.us/ or whatever domain you configured)
+Navigate to your deployed application (http://www.blueoceanz.us/ or whatever domain you configured)
 
 VIOLA!!!!
-### Production Deployment <a name = "prod_deploy"></a>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### (14) Redeploy<a id = "redeploy"></a>
+The following steps show you how to manually redeploy your swarm. Please note that this is not set-up with continuous deployment yet. 
+
+First, tear down your swarm from your droplet console
+```sh
+docker swarm leave --force
+```
+Then pull the changes down from the Github Repository
+```sh
+git pull origin main
+```
+OR
+```sh
+git fetch origin main
+git merge origin main
+```
+Ensure that the docker compose file is still set up for swarm deployment:
+```sh
+- version: '3.8'
+
+#frontend environment variable:
+- REACT_APP_BASE_API_URL=http://<droplet-ip-address>:3001
+```
+Redeploy
+```sh
+docker stack deploy -c <path-to-docker-compose.yml> <app-name>
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### D. Production Deployment<a id = "prod_deploy"></a>
 
 - It's been a bit quiet aound here lately ...
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Roadmap <a name = "roadmap"></a>
+## IV. Roadmap<a id = "roadmap"></a>
 
-- [ ] Add project documentation
+- [X] Add project documentation
 - [ ] Add production deployment information to the README
 - [ ] Add career manager vs student privileges
 - [ ] Add ability to make an organization as a career manager
@@ -501,22 +629,22 @@ VIOLA!!!!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Contributing <a name = "contributing"></a>
+## V. Contributing <a id = "contributing"></a>
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give this project a star! Thanks again!
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- Fork the Project
+- Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+- Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+- Push to the Branch (`git push origin feature/AmazingFeature`)
+- Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Final Note <a name = "ps"></a>
+## VI. Final Note <a id = "ps"></a>
 
 This repo is under active development. If you have any improvements / suggestions please submit a [Pull Request](https://github.com/Blue-Oceanz/Blue-Oceanz/pulls)
 
