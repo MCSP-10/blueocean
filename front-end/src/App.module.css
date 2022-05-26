@@ -6,7 +6,7 @@
         'sidebar topbar'
         'sidebar viewArea';
     height: 100vh;
-    background-color: var(--offWhite);
+    background-color: rgb(255, 255, 255);
 }
 
 .topBar {
@@ -20,4 +20,6 @@
 
 .viewArea {
     grid-area: viewArea;
+    overflow-x: scroll;
+    margin-right: .5em;
 }

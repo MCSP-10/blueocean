@@ -27,11 +27,11 @@ const Column = (props) => {
             <h2 className={styles.columnTitle}>{name}</h2>
             <BsPlusCircleFill
                 size={30}
-                color={'#3c5a68'}
+                color={'rgb(60, 64, 67)'}
                 className={styles.addAppButton}
                 onClick={() => setShowModal(true)}
             />
-
+            <div className={styles.border}></div>
             {items.map(({ company, logo, title, id, url, note }) => (
                 <Card
                     name={company}
