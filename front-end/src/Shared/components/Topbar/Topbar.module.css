@@ -1,5 +1,5 @@
 .container {
-    background-color: paleturquoise;
+    background-color: #00416a;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -7,6 +7,8 @@
     padding: 0 20px;
     height: 100%;
     border-bottom: 2px solid var(--darkBlue);
+    width: 100%;
+    opacity: .8;
     /* background-image: linear-gradient(to left, #EE6C4D, #E0FBFC) ; */
 }
 
@@ -17,6 +19,13 @@
 }
 
 .title {
-    color: var(--darkBlue);
+    color: white;
     /* -webkit-text-stroke: .01px var(--olive); */
+}
+
+.dropDown{
+    color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
 }

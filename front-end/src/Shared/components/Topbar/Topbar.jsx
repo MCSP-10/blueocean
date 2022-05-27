@@ -27,16 +27,16 @@ export default function Topbar() {
             <div className={styles.menu}>
             <Link to={'/applications'}>
                 <Button
-                    icon={<RiNewspaperLine size={30} color={'black'} />}
+                    icon={<RiNewspaperLine size={30} color={'white'} />}
                     text="Applications"
-                    textColor="black"
+                    textColor="white"
                 />
             </Link>
             <Link to={'/opportunities'}>
                 <Button
-                    icon={<GoMegaphone size={30} color={'black'} />}
+                    icon={<GoMegaphone size={30} color={'white'} />}
                     text="Opportunities"
-                    textColor="black"
+                    textColor="white"
                 />
             </Link>
         </div>
@@ -48,9 +48,10 @@ export default function Topbar() {
             <Button
                 text="Logout"
                 onClick={logout}
-                color="darkBlue"
-                textColor="offWhite"
+                color='#F79020'
+                textColor="white"
             />
+            <DropDown/>
         </nav>
     );
 }

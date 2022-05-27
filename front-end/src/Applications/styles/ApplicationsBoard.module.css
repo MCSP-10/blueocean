@@ -12,39 +12,57 @@
     align-items: center;
     width: 14%;
     min-width: 300px;
-    height: 98%;
+    height: max-content;
+    /* min-height:10%; */
     padding-left: .5em;
     padding-right: .5em;
     margin: 1em 1em 1em 1em;
     border-width: 10px;
     border-right-color: green;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     background-color: rgb(215, 215, 215);
     background: #ecf0f3;
-    /* bottom right shadow (darker) */
+    /* bottom right shadow (darker)
     box-shadow: 13px 13px 20px #cbced1, 
-    /* top right shadow (brighter) */
-                -13px -13px 20px #ffffff;
+    top right shadow (brighter) -13px -13px 20px #ffffff; */
+    border-radius: 8px;
+    
 }
 
-.column h2 {
-    /* height: 85px; */
-    width: 250px;
-    text-align: center;
-}
+
 
 .columnTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 85px; */
+    /* width: 250px; */
+    /* text-align: center; */
     color: rgb(60, 64, 67);
+    /* border: 5px solid black; */
+    width: 100%;
+    top: 0;
+    border-bottom: 2px solid black;
 }
 
 .addAppButton:hover {
     cursor: pointer;
+    transform: scale(1.05);
+    opacity: .7;
 }
 
 .addAppButton {
-    background-color: var(--mainBlue);
-    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    /* background-color: #cbced1; */
+    width: 75%;
+    border: 5px;
+    padding-bottom: 10px;
+    /* position: fixed;
+    top: 90%;
+    z-index: 100; */
 }
+
 
 .hoverBox {
     width: 95%;
@@ -52,9 +70,9 @@
     background-color: grey;
 }
 
-.border {
+/* .border {
     width: 100%;
     height: 2px;
     margin-top: .5em;
     background-color: var(--darkBlue);
-}
+} */

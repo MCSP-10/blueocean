@@ -20,10 +20,10 @@ body{
 
 :root {
     height: 100%;
-    --font: 'Eczar', serif;
-    --buttonBlue: #3499e2;
-    --sidebarBlack: #2e3532;
-    --topbarGrey: #dbdbdb;
+    /* --font: 'Eczar', serif; */
+    /* --buttonBlue: #3499e2; */
+    /* --sidebarBlack: #2e3532; */
+    /* --topbarGrey: #dbdbdb; */
     --backGroundWhite: #e7e7e7;
     --blackOps: 'Black Ops One', cursive;
     --mainBlue: #68a6ad;

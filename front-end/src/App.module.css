@@ -9,6 +9,7 @@
     height: 100%;
     width: 100%;
     background-color: rgb(255, 255, 255);
+    /* border: 10px solid orange; */
 }
 
 /* .topBar {
@@ -21,9 +22,12 @@
 } */
 
 .viewArea {
-    grid-area: viewArea;
+    /* grid-area: viewArea; */
     overflow-x: scroll;
-    margin: 15px;
+    /* margin: 15px; */
     height: 100%;
-    width: 99%;
+    /* width: 100%; */
+    border: 10px solid #F79020;
+    position: relative;
+    background-color: cornsilk;
 }
