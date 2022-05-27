@@ -30,7 +30,7 @@ export default function Topbar() {
             <Button
                 text="Logout"
                 onClick={logout}
-                color="mainBlue"
+                color="darkBlue"
                 textColor="offWhite"
             />
         </nav>
