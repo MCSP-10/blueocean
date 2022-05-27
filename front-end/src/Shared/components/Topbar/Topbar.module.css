@@ -6,17 +6,17 @@
     align-items: center;
     padding: 0 20px;
     height: 100%;
-    border-bottom: 2px solid var(--mainOrange);
+    border-bottom: 2px solid var(--darkBlue);
     /* background-image: linear-gradient(to left, #EE6C4D, #E0FBFC) ; */
 }
 
 .logo {
-    height: 6.5rem;
+    height: 4rem;
     width: 6.5rem;
     margin-top: 0.5rem;
 }
 
 .title {
-    color: var(--mainOrange);
+    color: var(--darkBlue);
     /* -webkit-text-stroke: .01px var(--olive); */
 }
