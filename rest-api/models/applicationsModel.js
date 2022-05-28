@@ -42,7 +42,6 @@ applicationsModel.getApplicationById = async (appId) => {
 };
 
 applicationsModel.createApplication = async (applicationObj) => {
-    console.log(applicationObj)
     const insertQuery = helpers.insert(applicationObj, null, 'applications');
     const newApplication = await db.one(
         insertQuery +
