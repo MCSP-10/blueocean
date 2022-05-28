@@ -6,7 +6,6 @@ import styles from 'Applications/styles/Card.module.css';
 
 
 const DeleteApplication = (props) => {
-
     const { deleteApplication } = useContext(applicationsContext);
     const id = props.task_id
     const deleteTask=async ()=>{
