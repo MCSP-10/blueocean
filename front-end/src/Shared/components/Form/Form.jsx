@@ -4,7 +4,6 @@ import styles from './Form.module.css';
 
 export default function Form({ app }) {
     const [inputs, setInputs] = useState(app);
-    console.log(123)
 
     const handleSubmit = (event) => {
         event.preventDefault();
