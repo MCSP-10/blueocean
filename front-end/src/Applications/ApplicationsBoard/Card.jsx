@@ -6,11 +6,9 @@ import { useDrag } from 'react-dnd';
 import DeleteApplication from '../DeleteApplication';
 
 const Card = (props) => {
-
     const { id, name, subText, url, note } = props;
 
     const [showModal, setShowModal] = useState(false);
-
     const [{ isDragging }, drag] = useDrag({
         type: 'card',
         item: { id },
@@ -25,7 +23,6 @@ const Card = (props) => {
             <div
                 data-testid="app-card"
                 className={styles.component}
-              
                 style={{
                     opacity: isDragging ? 0.6 : 1,
                 }}
