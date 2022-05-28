@@ -15,8 +15,6 @@ const AddApplication = (props) => {
         };
     };
     const onSubmit = async (e) => {
-        
-        
         e.preventDefault();   
         if (!company || !position) {
             return;
