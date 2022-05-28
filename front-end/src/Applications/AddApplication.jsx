@@ -16,12 +16,14 @@ const AddApplication = (props) => {
     };
     const onSubmit = async (e) => {
         e.preventDefault();
-
+        
         if (!company || !position) {
             return;
         }
         const body = { company, job_title: position, status };
         await createApplication(body);
+        console.log(body)
+    
 
         props.afterSubmit();
     };
