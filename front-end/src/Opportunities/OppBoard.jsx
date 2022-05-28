@@ -5,8 +5,6 @@ import styles from './OppBoard.module.css';
 import oppContext from 'Shared/contexts/opportunitiesContext';
 import AddOpportunites from './AddOpportunites.jsx'
 
-
-
 export default function OppBoard() {
     const [isOpen, setIsOpen] = useState(false);
     const [appForm, setAppForm] = useState('');
