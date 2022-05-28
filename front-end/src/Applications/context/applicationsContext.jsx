@@ -22,8 +22,6 @@ export const ApplicationsProvider = ({ children }) => {
         const newApp = await Api.applications.create(body);
         applications.push(newApp);
         setApplications([...applications]);
-        console.log(applications)
-       
     };
     const deleteApplication = async (id) => {
         const index = applications.findIndex((app) => app.id === id)
@@ -32,13 +30,6 @@ export const ApplicationsProvider = ({ children }) => {
         setApplications([...applications]);
     };
 
-    //  const getComments = async (id) => {
-    //     const index = applications.comments((app) => app.id === id)
-    //     console.log(index)
-    //     await Api.applications.comments(index)
-    // }
-
-    
     useEffect(getApplications, []);
     const exports = { applications, changeStatus, createApplication,deleteApplication };
     return (
