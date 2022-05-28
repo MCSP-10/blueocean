@@ -9,6 +9,7 @@ import useApplications from 'Applications/useApplications';
 export default function Board() {
     const { data, status } = useApplications();
     const { applications } = useContext(applicationsContext);
+    
     const columns = [
         'Interested',
         'Applying',
