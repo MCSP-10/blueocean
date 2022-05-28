@@ -41,8 +41,6 @@ Api.applications = {
     delete: (id) =>
         request('DELETE', '/applications/'+id),
 };
-
-
 Api.auth = {
     post: (body) => request('POST', '/users/'),
 };
