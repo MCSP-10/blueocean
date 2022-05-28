@@ -29,7 +29,6 @@ export const ApplicationsProvider = ({ children }) => {
         await Api.applications.delete(id)
         setApplications([...applications]);
     };
-
     useEffect(getApplications, []);
     const exports = { applications, changeStatus, createApplication,deleteApplication };
     return (
