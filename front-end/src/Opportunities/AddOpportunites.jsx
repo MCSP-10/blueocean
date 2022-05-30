@@ -26,8 +26,7 @@ const AddOpportunites = (props) => {
         if (!company || !position) {
             return;
         }
-        const body = { group_name, company, job_title: position,salary,deadline,description,location};
-        console.log(body)
+        const body = { group_name:"MCSP-10", company, job_title: position,salary,deadline,description,location};
         await createOpportunities(body);
         props.afterSubmit();
     };
@@ -36,20 +35,7 @@ const AddOpportunites = (props) => {
             <h3 className={styles.title}>Add New Application</h3>
             <hr className={styles.lineBreak}></hr>
             <form onSubmit={onSubmit}>
-                <div className={styles.field}>
-                    <input
-                        type="text"
-                        id="group"
-                        name="group"
-                        onChange={passValueTo(setGroup)}
-                        placeholder=" "
-                    />
-                    <label htmlFor="group_name" className={styles.labels}>
-                        Group name
-                    </label>
-                </div>
-
-                <div className={styles.field}>
+                   <div className={styles.field}>
                     <input
                         type="text"
                         id="company"
