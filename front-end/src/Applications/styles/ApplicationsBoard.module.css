@@ -11,6 +11,12 @@
     width: 20%;
     height: 100%;
 }
+
+.column h2 {
+    height: 85px;
+    text-align: center;
+}
+
 .columnTitle {
     color: var(--darkBlue);
 }

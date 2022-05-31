@@ -3,6 +3,7 @@ import CommentItem from './CommentItem';
 import styles from './Form.module.css';
 
 export default function Comments({ comments }) {
+    // console.log(comments)
     return (
         <div className={styles.comment_container}>
             {comments &&

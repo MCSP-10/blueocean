@@ -8,7 +8,9 @@ import { applicationsContext } from 'Applications';
 import { useState, useContext } from 'react';
 
 const Column = (props) => {
+
     const { name, items } = props;
+    
     const { changeStatus } = useContext(applicationsContext);
     const [showModal, setShowModal] = useState(false);
 
@@ -30,13 +32,15 @@ const Column = (props) => {
                 onClick={() => setShowModal(true)}
             />
 
-            {items.map(({ company, logo, title, id }) => (
+            {items.map(({ company, logo, title, id, url, note }) => (
                 <Card
                     name={company}
                     logo={logo}
                     subText={title}
                     key={id}
                     id={id}
+                    url={url}
+                    note={note}
                 />
             ))}
             {isOver ? (
