@@ -2,13 +2,16 @@
     box-sizing: border-box;
     border-radius: 0.5em;
     padding: 10px;
-    background-color: lightgrey;
+    background-color: rgb(255, 255, 255);
     width: 95%;
     display: flex;
     flex-direction: column;
     padding: 1em;
     margin: 1.5em;
     font-size: 80%;
+    box-shadow: 13px 13px 20px #cbced1, 
+    /* top right shadow (brighter) */
+                -13px -13px 20px #e8e8e8;
 }
 
 .component:hover {
