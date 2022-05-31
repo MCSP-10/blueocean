@@ -19,7 +19,7 @@
 }
 
 .topBar {
-    background-color: var(--mainBlue);
+    background-color: var(--darkBlue);
     padding: 0.2em;
     display: flex;
     flex-direction: row;
@@ -44,4 +44,9 @@
     flex-direction: column;
     padding: 1em;
     z-index: 100;
+}
+
+.appDetails{
+    display: flex;
+    flex-direction: row;
 }

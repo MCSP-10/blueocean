@@ -9,7 +9,7 @@ const Button = (props) => {
         orange: '#F04625',
         peach: '#F19B88',
         mainBlue: '#68a6ad',
-        darkBlue: '#3C5A68',
+        darkBlue: 'rgb(14, 91, 147)',
         chocolate: '#1D170B',
         olive: '#47381D',
         offWhite: '#F2EFEB',

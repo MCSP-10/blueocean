@@ -1,98 +1,54 @@
-/* .component {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-}
-.column {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    width: 20%;
-    height: 100%;
-}
-.columnTitle {
-    color: #293241;
-}
-.addAppButton{
-    transition: all .5s ease;
-}
-.addAppButton:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
-.hoverBox {
-    width: 95%;
-    height: 50px;
-    background-color: grey;
-}
-
-.card {
-    box-sizing: border-box;
-    border-radius: 0.2em;
-    padding: 10px;
-    background-color: #B4C0C6;
-    color: #293241;
-    width: 95%;
-    overflow: hidden;
-    font-size: 80%;
-    margin: 8px 0px;
-    display: grid;
-    min-height: 100px;
-    grid-template-columns: 50px auto;
-    grid-template-rows: 1em auto;
-    grid-template-areas:
-        'logo company'
-        'logo position';
-}
-
-.card:hover {
-    cursor: grab;
-    background-color: #6F7984;
-    color: #293241;
-}
-.component img {
-    height: 40px;
-    grid-area: logo;
-} */
-
 .component {
     box-sizing: border-box;
     border-radius: 0.5em;
     padding: 10px;
-    background-color: lightgrey;
+    background-color: rgb(255, 255, 255);
     width: 95%;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: 1.5em;
     font-size: 80%;
-    margin: 8px 0px;
-    display: grid;
-    min-height: 100px;
-    grid-template-columns: 50px auto;
-    grid-template-rows: 1em auto;
-    grid-template-areas:
-        'logo company'
-        'logo position';
+    box-shadow: 13px 13px 20px #cbced1, 
+    /* top right shadow (brighter) */
+                -13px -13px 20px #e8e8e8;
+                height: 150px;
+                /* z-index: 1; */
 }
 
 .component:hover {
     cursor: grab;
     background-color: #6f7984;
 }
-.component img {
-    height: 50px;
-    grid-area: logo;
-    border-radius: 50%;
+
+.component div {
+    display: flex;
+    justify-content: space-between;
 }
 
 .companyName {
-    text-align: center;
     color: var(--darkBlue);
-    font-size: 1.8rem;
+    font-size: 2rem;
+    margin: 5px;
 }
 .subText {
-    margin-top: 25%;
     color: var(--olive);
     font-size: 1rem;
-    text-align: center;
+}
+
+.component span {
+    padding-left: .1em;
+}
+
+.cardLogo {
+    height: 3em;
+}
+
+.delete {
+    height: 2em;
+}
+
+.deleteBtn {
+    display: flex;
+    align-items: start;
 }

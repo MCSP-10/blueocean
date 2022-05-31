@@ -1,5 +1,5 @@
 .loginCage {
-    background: #f2efeb;
+    background: var(--lightGray);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,7 +84,7 @@
 }
 
 ::placeholder {
-    color: var(--darkChocolate);
+    color: var(--darkGray);
 }
 
 .container {
@@ -97,7 +97,7 @@
     overflow: hidden;
     width: 60rem;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 580px;
     color: #f04625;
 }
 
@@ -162,7 +162,7 @@
 }
 
 .overlay {
-    background: #68a6ad;
+    background: var(--darkBlue);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;

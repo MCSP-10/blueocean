@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component Should render a Mapquest job card 1`] = `
+<span
+  data-testid="app-card"
+>
+  <h3
+    class="companyName"
+  />
+  <h3
+    class="subText"
+  />
+</span>
+`;

@@ -6,18 +6,26 @@ import { commentsSchema } from '../ajv/index.js';
 const comments = new Router();
 comments.use(json());
 
+comments.get(
+    '/comments/:appId',
+    authorization,
+    commentsController.getAll
+);
+
 comments.post(
     '/',
     authorization,
     validate(commentsSchema.post),
     commentsController.createComment
 );
+
 comments.patch(
     '/:commentId',
     authorization,
     validate(commentsSchema.update),
     commentsController.updateComment
 );
+
 comments.delete('/:commentId', authorization, commentsController.deleteComment);
 
 export default comments;

@@ -8,7 +8,9 @@ import { applicationsContext } from 'Applications';
 import { useState, useContext } from 'react';
 
 const Column = (props) => {
+
     const { name, items } = props;
+    
     const { changeStatus } = useContext(applicationsContext);
     const [showModal, setShowModal] = useState(false);
 
@@ -23,20 +25,22 @@ const Column = (props) => {
     return (
         <div className={styles.column} ref={drop}>
             <h2 className={styles.columnTitle}>{name}</h2>
-            <BsPlusCircleFill
+            {/* <BsPlusCircleFill
                 size={30}
-                color={'#3c5a68'}
+                color={'rgb(60, 64, 67)'}
                 className={styles.addAppButton}
                 onClick={() => setShowModal(true)}
-            />
-
-            {items.map(({ company, logo, title, id }) => (
+            /> */}
+            <div className={styles.border}></div>
+            {items.map(({ company, logo, title, id, url, note }) => (
                 <Card
                     name={company}
                     logo={logo}
                     subText={title}
                     key={id}
                     id={id}
+                    url={url}
+                    note={note}
                 />
             ))}
             {isOver ? (
@@ -54,6 +58,11 @@ const Column = (props) => {
                     />
                 }
             />
+            <button 
+                className={styles.addAppButton}
+                onClick={() => setShowModal(true)}>
+                + Add Application
+            </button>
         </div>
     );
 };

@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import Button from 'Shared/components/Button/Button';
 import { useAuth } from 'Shared/services/Auth.js';
 import logo from 'Shared/assets/cazadorLogo.svg';
+import { GoMegaphone } from 'react-icons/go';
+import { RiNewspaperLine } from 'react-icons/ri';
+import Menu from './menuDropdown';
 
 export default function Topbar() {
     const { logout } = useAuth();
@@ -22,17 +25,23 @@ export default function Topbar() {
 
     return (
         <nav className={styles.container}>
+            <div className={styles.menu}>
+                <Menu/>
+        </div>
             <Link to={'/home'}>
                 <img src={logo} className={styles.logo}></img>
             </Link>
             {/* <h1 className={styles.title}>logo</h1> */}
-            <h1 className={styles.title}>{quote[today.getDay()]}</h1>
-            <Button
+            {/* <h1 className={styles.title}>{quote[today.getDay()]}</h1> */}
+            <Button 
+                className={styles.title}            
                 text="Logout"
                 onClick={logout}
-                color="mainBlue"
-                textColor="offWhite"
+                color='#F79020'
+                textColor="white"
+                
             />
+            {/* <DropDown/> */}
         </nav>
     );
 }
