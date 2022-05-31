@@ -9,16 +9,19 @@ import useApplications from 'Applications/useApplications';
 export default function Board() {
     const { data, status } = useApplications();
     const { applications } = useContext(applicationsContext);
+    
     const columns = [
         'Interested',
         'Applying',
-        'Interviewing',
+        'Phone Interview',
+        'Technical Interview',
+        'Final Interview',
         'Offered',
         'Rejected',
     ];
     return (
         <DndProvider backend={HTML5Backend}>
-            <div className={styles.component}>
+            <div data-testid='app-column-title' className={styles.component}>
                 {columns.map((col, i) => (
                     <Column
                         name={col}

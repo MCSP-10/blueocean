@@ -4,14 +4,16 @@ import { useNavigate, Navigate } from 'react-router-dom';
 import Auth, { useAuth } from 'Shared/services/Auth';
 import logo from 'Shared/assets/cazadorLogo.svg';
 import styles from './Login.module.css';
+import Api from 'Shared/utils/Api';
 
 export default function RegLogin() {
     const navigate = useNavigate();
     const { isLoggedIn, login } = useAuth();
+    const {register} = useAuth();
 
     const [incorrectAttempt, setIncorrectAttempt] = useState(false);
     const [incorrectRegisterAttempt, setIncorrectRegisterAttempt] =
-        useState(false);
+        useState();
     const signinEmailRef = useRef();
     const signinPassRef = useRef();
 
@@ -30,8 +32,17 @@ export default function RegLogin() {
             registerPasswordRef.current.value,
             registerRole,
         ]);
-        // const ok = await register(firstNameRef.current.value, lastNameRef.current.value, registerEmailRef.current.value, registerPasswordRef.current.value, roleRef)
-        // if(!ok) return setIncorrectRegisterAttempt(true)
+        const ok = await Api.register.register(firstNameRef.current.value, lastNameRef.current.value, registerEmailRef.current.value, registerPasswordRef.current.value, registerRole)
+        console.log(ok, 'this is OKAY')
+        if(!ok) {
+            alert('Registration status: Failed, make sure input fields are correct')
+            navigate('/')
+            return setIncorrectRegisterAttempt(true)
+        }
+        if(ok){
+            alert('Registration status: Success')
+            navigate('/')
+        }
     };
 
     const handleSignInSubmit = async (e) => {
@@ -76,7 +87,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="text"
-                                placeholder="First Name.."
+                                placeholder="First name"
                                 ref={firstNameRef}
                             />
                         </div>
@@ -84,7 +95,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="text"
-                                placeholder="Last Name.."
+                                placeholder="Last name"
                                 ref={lastNameRef}
                             />
                         </div>
@@ -92,7 +103,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="text"
-                                placeholder="Email.."
+                                placeholder="Email"
                                 ref={registerEmailRef}
                             />
                         </div>
@@ -100,7 +111,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="password"
-                                placeholder="Password.."
+                                placeholder="Password"
                                 ref={registerPasswordRef}
                             />
                         </div>
@@ -152,7 +163,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="text"
-                                placeholder="Email.."
+                                placeholder="Email"
                                 ref={signinEmailRef}
                             />
                         </div>
@@ -160,7 +171,7 @@ export default function RegLogin() {
                             <input
                                 className={styles.inputs}
                                 type="password"
-                                placeholder="Password.."
+                                placeholder="Password"
                                 ref={signinPassRef}
                             />
                         </div>

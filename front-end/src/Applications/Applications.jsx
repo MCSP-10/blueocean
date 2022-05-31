@@ -2,7 +2,7 @@ import { ApplicationsBoard } from 'Applications';
 import { ApplicationsProvider } from 'Applications';
 const Applications = () => {
     return (
-        <ApplicationsProvider>
+        <ApplicationsProvider contextSharing={true}>
             <ApplicationsBoard />
         </ApplicationsProvider>
     );

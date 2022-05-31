@@ -9,7 +9,7 @@ import {
     useLocation,
 } from 'react-router-dom';
 import App from 'App';
-import Auth, { useAuth, AuthProvider } from 'Shared/services/Auth';
+import { useAuth, AuthProvider } from 'Shared/services/Auth';
 import Login from 'Login';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import './main.css';

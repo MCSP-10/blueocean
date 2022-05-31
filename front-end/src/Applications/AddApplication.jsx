@@ -65,7 +65,9 @@ const AddApplication = (props) => {
                 >
                     <option value="Interested">Interested</option>
                     <option value="Applying">Applying</option>
-                    <option value="Interviewing">Interviewing</option>
+                    <option value="Phone Interview">Phone Interview</option>
+                    <option value="Technical Interview">Technical Interview</option>
+                    <option value="Final Interview">Final Interview</option>
                     <option value="Offered">Offered</option>
                     <option value="Rejected">Rejected</option>
                 </select>

@@ -7,7 +7,6 @@
         'sidebar viewArea';
     height: 100vh;
     background-color: var(--offWhite);
-    /* background-color: #E0FBFC; */
 }
 
 .topBar {
