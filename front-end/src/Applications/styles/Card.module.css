@@ -44,3 +44,8 @@
 .delete {
     height: 2em;
 }
+
+.deleteBtn {
+    display: flex;
+    align-items: start;
+}

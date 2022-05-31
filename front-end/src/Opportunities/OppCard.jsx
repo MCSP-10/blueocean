@@ -8,16 +8,13 @@ export default function OppCard({ app, setIsOpen, setAppForm }) {
     const [showModal, setShowModal] = useState(false);
     let id=app.id;
     console.log(app)
-   
+
     return (
         <>
         <div
             className={styles.oppCard}
             >
-            <div className={styles.logo_div}></div>
-            <div className={styles.info_div}>
-                <DeleteOppo className={styles.delete} id={id}  />
-            </div>
+            {/* <div className={styles.logo_div}></div> */}
             <span  onClick={() => {
                 setShowModal(true)
                 setIsOpen(true);
@@ -26,7 +23,9 @@ export default function OppCard({ app, setIsOpen, setAppForm }) {
                 >
             <h1>{app.company}</h1>
             <h3>{app.title}</h3></span>
-           
+            <div className={styles.info_div}>
+                <DeleteOppo className={styles.delete} id={id}  />
+            </div>
         </div>
         <Modal
                 open={showModal}
