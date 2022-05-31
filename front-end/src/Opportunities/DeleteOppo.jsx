@@ -17,7 +17,9 @@ const DeleteOppo = (props) => {
 )
 
     return (
-        <button onClick={(()=>{abc()})}><img className={styles.delete} src={closeBtn}/></button>
+        <div className={styles.deleteBtn}>
+            <button onClick={(()=>{abc()})}><img className={styles.delete} src={closeBtn}/></button>
+        </div>
     );
 };
 

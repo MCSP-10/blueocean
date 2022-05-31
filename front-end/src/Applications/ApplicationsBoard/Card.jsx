@@ -21,7 +21,6 @@ const Card = (props) => {
     return (
         <>
             <div
-                data-testid="app-card"
                 className={styles.component}
                 style={{
                     opacity: isDragging ? 0.6 : 1,
@@ -33,7 +32,8 @@ const Card = (props) => {
                     <DeleteApplication className={styles.delete} task_id={id}  />
                 </div>
                 <span
-                  onClick={() => setShowModal(true)}>
+                    data-testid="app-card"
+                    onClick={() => setShowModal(true)}>
                     <h3 className={styles.companyName}>{props.name}</h3>
                     <h3 className={styles.subText}>{props.subText}</h3>
                 </span>
@@ -48,7 +48,7 @@ const Card = (props) => {
                             url={url}
                             note={note}
                             image={props.logo}
-                             />}
+                            />}
             />
         </>
     );
