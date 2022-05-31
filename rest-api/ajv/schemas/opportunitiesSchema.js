@@ -12,7 +12,7 @@ const post = {
         salary: { type: 'number', minimum: 0 },
         location: { type: 'string', minLength: 1 },
     },
-    required: ['group_name', 'company', 'job_title'],
+    required: ['group_name', 'company', 'job_title',"salary","deadline","description","location"],
     additionalProperties: false,
 };
 

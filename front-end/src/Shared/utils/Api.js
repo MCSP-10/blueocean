@@ -28,6 +28,9 @@ Api.register = {
 
 Api.opportunities = {
     getAllByGroup: (group) => request('GET', '/opportunities/' + group),
+    create: (body) => request('POST', '/opportunities', body),
+    delete: (id) =>
+        request('DELETE', '/opportunities/'+id),
 };
 
 Api.applications = {
@@ -42,8 +45,10 @@ Api.auth = {
     post: (body) => request('POST', '/users/'),
 };
 
-const applications = Api.applications;
+// const applications = Api.applications;
+// const opportunities= Api.opportunities;
 
-export { applications };
+// export { applications,opportunities };
 
 export default Api;
+
