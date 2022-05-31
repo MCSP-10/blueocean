@@ -39,7 +39,6 @@ export default function Topbar() {
                 onClick={logout}
                 color='#F79020'
                 textColor="white"
-                
             />
             {/* <DropDown/> */}
         </nav>

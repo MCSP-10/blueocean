@@ -18,13 +18,14 @@
     padding-right: .5em;
     margin: 1em 1em 1em 1em;
     border-width: 10px;
-    border-right-color: green;
+    /* border-right-color: green; */
     /* border-radius: 10px; */
     background-color: rgb(215, 215, 215);
     background: #ecf0f3;
-    /* bottom right shadow (darker)
+    /* bottom right shadow (darker) */
     box-shadow: 13px 13px 20px #cbced1, 
-    top right shadow (brighter) -13px -13px 20px #ffffff; */
+    /* top right shadow (brighter)  */
+                -13px -13px 20px #ffffff;
     border-radius: 8px;
     
 }

@@ -17,28 +17,29 @@ export default function Menu() {
         <div className={styles.menu}>
             <Button 
                 // className={style}     
-                icon={<GiHamburgerMenu size={50} color={'white'}/>} 
+                icon={<GiHamburgerMenu size={40} color={'white'}/>} 
                 onClick={dropDownHandler}>
             </Button>
-            {showMenu && (
-                <div className={styles.dropMenu}>
-                <Link to={'/applications'}>
-                    <Button
-                        icon={<RiNewspaperLine size={30} color={'white'} />}
-                        text="Applications"
-                        textColor="white"
-                    />
-                </Link>
-                <Link to={'/opportunities'}>
-                    <Button
-                        icon={<GoMegaphone size={30} color={'white'} />}
-                        text="Opportunities"
-                        textColor="white"
-                    />
-                </Link>
-                   
+            <div className={styles.dropMenuContainer}>
+                {showMenu && (
+                    <div className={styles.dropdownMenu}>
+                            <Link to={'/applications'}>
+                                <Button
+                                    icon={<RiNewspaperLine size={30} color={'rgb(60, 64, 67)'} />}
+                                    text="Applications"
+                                    textColor="rgb(60, 64, 67)"
+                                />
+                            </Link>
+                            <Link to={'/opportunities'}>
+                                <Button
+                                    icon={<GoMegaphone size={30} color={'rgb(60, 64, 67)'} />}
+                                    text="Opportunities"
+                                    textColor="rgb(60, 64, 67)"
+                                />
+                            </Link>
                 </div>
-            )}
+                )}
+            </div> 
             
         </div>
     );

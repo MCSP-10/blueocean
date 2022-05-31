@@ -6,7 +6,7 @@
     align-items: center;
     padding: 0 20px;
     height: 100%;
-    border-bottom: 5px solid var(--mainOrange);
+    /* border-bottom: 2px solid rgb(60, 64, 67); */
     width: 100%;
     /* opacity: .8; */
     /* background-image: linear-gradient(to left, #EE6C4D, #E0FBFC) ; */
@@ -22,34 +22,73 @@
     /* position: fixed; */
 }
 
+.titleContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .title {
     display: flex;
     justify-content: center;
-    color: white;
-    background-color: var(--darkBlue);
-    margin: 0;
-    padding: 5px;
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+    color: rgb(60, 64, 67);
+    background-color: white;
+    margin: .5em;
+    /* border-top: 2px solid rgb(60, 64, 67); */
+    /* border-bottom: 2px solid rgb(60, 64, 67); */
     /* -webkit-text-stroke: .01px var(--olive); */
 }
 
 .menu{
     display: flex;
-    /* position: absolute; */
 }
 
-.dropMenu{
-    background-color: black;
-    /* position:relative; */
+.dropMenuContainer{
+    /* background-color: black;
     top: 25px;
     z-index: 10000;
-    /* opacity: 1; */
-    position: auto;
-    /* padding-left: 20px; */
+    position: auto; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropdownMenu {
+    background: #ffffff;
+    border-radius: 3px;
+    position: absolute;
+    top: 60px;
+    width: 300px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
 
 
 
-@media screen and (max-width: 900px) {}
+.dropdownMenu a {
+    list-style: none;
+    display: block;
+    padding: 15px 20px;
+    margin: 0;
+    /* border-bottom: 1px solid #dddddd; */
+    text-decoration: none;
+    color: black;
+}
+
+
+@media screen and (max-width: 900px) {
+    .title{
+        width: 70%;
+    }
+}
 
 @media screen and (max-width: 500px) {}
 

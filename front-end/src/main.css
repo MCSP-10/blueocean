@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Eczar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 
 html {
     height: 100%;
@@ -20,7 +20,7 @@ body{
 
 :root {
     height: 100%;
-    /* --font: 'Eczar', serif; */
+    --font: 'Jost', sans-serif;
     /* --buttonBlue: #3499e2; */
     /* --sidebarBlack: #2e3532; */
     /* --topbarGrey: #dbdbdb; */
