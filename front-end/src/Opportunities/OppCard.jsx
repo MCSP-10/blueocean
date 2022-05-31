@@ -14,7 +14,7 @@ export default function OppCard({ app, setIsOpen, setAppForm }) {
         <div
             className={styles.oppCard}
             >
-            <div className={styles.logo_div}></div>
+            {/* <div className={styles.logo_div}></div> */}
             <span  onClick={() => {
                 setShowModal(true)
                 setIsOpen(true);
