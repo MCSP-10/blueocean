@@ -1,23 +1,31 @@
 .container {
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     justify-items: center;
     margin-top: 3rem;
+    flex-wrap:wrap;
 }
 
 .oppCard {
     display: flex;
     height: 6rem;
-    display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 0.4rem;
-    width: 90%;
+    max-width: 30%;
+    width: 30%;
+    min-width: 300px;
     padding: 0.2rem;
+    padding-left: 1em;
     align-items: center;
-    justify-content: start;
-    /*  */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    justify-content: space-between;
+    background: #ecf0f3;
+    /* bottom right shadow (darker) */
+    box-shadow: 13px 13px 20px #cbced1, 
+    /* top right shadow (brighter) */
+                -13px -13px 20px #ffffff;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -39,4 +47,169 @@
 .logo_div > img {
     height: 100%;
     border-radius: 0.4rem;
+}
+
+
+
+.addAppButton:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.addAppButton {
+    background-color: var(--darkBlue);
+    border-radius: 0.3em;;
+    margin: 1em;
+    color: white;
+    padding: 0.1em 0.4em;
+    font-size: 1.2em;
+    transition: all 0.5s ease;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+
+.inputs {
+    margin-top: 1rem;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid var(--darkBlue);
+}
+
+.dropDown {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--darkChocolate);
+}
+
+.selects {
+    font-size: 0.9rem;
+    color: var(--darkChocolate);
+    margin-top: 1.3rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--darkBlue);
+}
+
+.lineBreak {
+    border-top: 1px solid var(--mainOrange);
+    margin-top: 0.5rem;
+}
+
+.labels {
+    color: var(--darkChocolate);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+}
+
+.field {
+    display: flex;
+    flex-flow: column-reverse;
+    margin-bottom: 1em;
+}
+
+.labels,
+.inputs {
+    transition: all 0.2s;
+    touch-action: manipulation;
+}
+
+.inputs:focus {
+    outline: 0;
+    border-bottom: 1px solid #666;
+}
+.inputs:placeholder-shown + .labels {
+    cursor: text;
+    max-width: 66.66%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform-origin: left bottom;
+    transform: translate(0, 2.7rem) scale(1.5);
+}
+
+::-webkit-input-placeholder {
+    opacity: 1;
+    transition: inherit;
+}
+
+.inputs:focus::-webkit-input-placeholder {
+    opacity: 1;
+}
+
+.inputs:not(:placeholder-shown) + .labels,
+.inputs:focus + .labels {
+    transform: translate(0, 1rem) scale(1);
+    cursor: pointer;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    /* bottom right shadow (darker) */
+    box-shadow: 13px 13px 20px #cbced1, 
+    /* top right shadow (brighter) */
+                -13px -13px 20px #ffffff;
+}
+
+
+/* Search Bar */
+
+.opportunitiesBoard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.oppSearch {
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    height: 31px;
+    width: 250px;
+    padding: 5px;
+    padding-left: 15px;
+    border-radius: .3em 0 0 .3em;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    background: #ecf0f3;
+    /* bottom right shadow (darker) */
+    box-shadow: 13px 13px 20px #cbced1, 
+    /* top right shadow (brighter) */
+                -13px -13px 20px #ffffff;
+}
+
+.search:focus {
+    width: 260px;
+}
+
+.searchButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 0 .3em .3em 0;
+    border: none;
+    background: #ecf0f3;
+    /* bottom right shadow (darker) */
+    box-shadow: 13px 13px 20px #cbced1, 
+    /* top right shadow (brighter) */
+                -13px -13px 20px #ffffff;
+    cursor: pointer;
+}
+
+.info_div {
+    height: 100%;
+    padding-top: .75em;
+    padding-right: .5em;
 }

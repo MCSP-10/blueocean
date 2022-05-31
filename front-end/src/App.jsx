@@ -5,6 +5,7 @@ import Sidebar from 'Shared/components/Sidebar/Sidebar';
 import Topbar from 'Shared/components/Topbar/Topbar';
 import { useAuth } from 'Shared/services/Auth.js';
 import { OpportunitiesProvider } from 'Shared/contexts/opportunitiesContext';
+import Quote from './Shared/components/Topbar/quoteBar';
 
 import styles from './App.module.css';
 
@@ -16,6 +17,9 @@ export const App = () => {
             </div> */}
             <div className={styles.topBar}>
                 <Topbar />
+            </div>
+            <div className={styles.quote}>
+                <Quote/>
             </div>
             <div className={styles.viewArea}>
                 <OpportunitiesProvider>

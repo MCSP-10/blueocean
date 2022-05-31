@@ -13,6 +13,7 @@
     /* top right shadow (brighter) */
                 -13px -13px 20px #e8e8e8;
                 height: 150px;
+                /* z-index: 1; */
 }
 
 .component:hover {
@@ -45,4 +46,9 @@
 
 .delete {
     height: 2em;
+}
+
+.deleteBtn {
+    display: flex;
+    align-items: start;
 }
