@@ -17,7 +17,7 @@ describe('ApplicationsBoard Component', () => {
         // console.log(titles.textContent);
         
         expect(titles).toBeInTheDocument();
-        expect(titles.textContent).toBe('InterestedApplyingInterviewingOfferedRejected');
+        expect(titles.textContent).toBe('InterestedApplyingPhone InterviewTechnical InterviewFinal InterviewOfferedRejected');
     });
     
 });

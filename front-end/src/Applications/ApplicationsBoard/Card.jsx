@@ -23,7 +23,6 @@ const Card = (props) => {
     return (
         <>
             <div
-                data-testid="app-card"
                 className={styles.component}
               
                 style={{
@@ -35,7 +34,7 @@ const Card = (props) => {
                     <img className={styles.cardLogo} src={props.logo} />
                     <DeleteApplication className={styles.delete} task_id={id}  />
                 </div>
-                <span
+                <span  data-testid="app-card"
                   onClick={() => setShowModal(true)}>
                     <h3 className={styles.companyName}>{props.name}</h3>
                     <h3 className={styles.subText}>{props.subText}</h3>
