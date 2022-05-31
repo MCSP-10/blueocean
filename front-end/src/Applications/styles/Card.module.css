@@ -12,6 +12,8 @@
     box-shadow: 13px 13px 20px #cbced1, 
     /* top right shadow (brighter) */
                 -13px -13px 20px #e8e8e8;
+                height: 150px;
+                /* z-index: 1; */
 }
 
 .component:hover {
@@ -27,6 +29,7 @@
 .companyName {
     color: var(--darkBlue);
     font-size: 2rem;
+    margin: 5px;
 }
 .subText {
     color: var(--olive);

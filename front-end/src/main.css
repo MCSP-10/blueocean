@@ -1,15 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Eczar&display=swap');
 
-* {
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    height: 100%;
+    margin: 0;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     font-family: var(--font);
+    height: 100%;
 }
 
 :root {
-    --font: 'Eczar', serif;
-    --buttonBlue: #3499e2;
-    --sidebarBlack: #2e3532;
-    --topbarGrey: #dbdbdb;
+    height: 100%;
+    /* --font: 'Eczar', serif; */
+    /* --buttonBlue: #3499e2; */
+    /* --sidebarBlack: #2e3532; */
+    /* --topbarGrey: #dbdbdb; */
     --backGroundWhite: #e7e7e7;
     --blackOps: 'Black Ops One', cursive;
     --mainBlue: #68a6ad;

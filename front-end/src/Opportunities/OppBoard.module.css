@@ -1,9 +1,12 @@
 .container {
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     justify-items: center;
     margin-top: 3rem;
+    flex-wrap:wrap;
 }
 
 .oppCard {
@@ -11,7 +14,9 @@
     height: 6rem;
     /* border: 1px solid black; */
     border-radius: 0.4rem;
-    width: 90%;
+    max-width: 30%;
+    width: 30%;
+    min-width: 300px;
     padding: 0.2rem;
     padding-left: 1em;
     align-items: center;
