@@ -11,6 +11,7 @@
 
 .topBar {
     grid-area: topbar;
+    /* overflow-wrap: normal; */
 }
 
 .sideBar {
@@ -22,4 +23,15 @@
     grid-area: viewArea;
     overflow-x: scroll;
     margin-right: .5em;
+}
+
+
+@media screen and (max-width: 900px) {
+    /* .container{
+        grid-template-rows: auto auto;
+    }
+    .topBar {
+        display: flex;
+        flex-wrap: wrap;
+    } */
 }

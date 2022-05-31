@@ -20,3 +20,9 @@
     color: var(--darkBlue);
     /* -webkit-text-stroke: .01px var(--olive); */
 }
+
+@media screen and (max-width: 900px) {}
+
+@media screen and (max-width: 500px) {}
+
+@media screen and (max-width: 300px) {}
