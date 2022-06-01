@@ -15,8 +15,7 @@ export default function Menu() {
 
     return (
         <div className={styles.menu}>
-            <Button 
-                // className={style}     
+            <Button      
                 icon={<GiHamburgerMenu size={40} color={'white'}/>} 
                 onClick={dropDownHandler}>
             </Button>
@@ -37,7 +36,7 @@ export default function Menu() {
                                     textColor="rgb(60, 64, 67)"
                                 />
                             </Link>
-                </div>
+                    </div>
                 )}
             </div> 
             

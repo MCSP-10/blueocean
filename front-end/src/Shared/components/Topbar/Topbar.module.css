@@ -8,8 +8,6 @@
     height: 100%;
     /* border-bottom: 2px solid rgb(60, 64, 67); */
     width: 100%;
-    /* opacity: .8; */
-    /* background-image: linear-gradient(to left, #EE6C4D, #E0FBFC) ; */
     overflow: visible;
     position: relative;
     height: 100px;
@@ -18,8 +16,6 @@
 .logo {
     height: 7rem;
     width: 10rem;
-    /* margin-top: 0.5rem; */
-    /* position: fixed; */
 }
 
 .titleContainer {

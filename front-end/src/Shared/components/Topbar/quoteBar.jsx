@@ -13,9 +13,5 @@ export default function Quote  () {
         `“A person who never made a mistake never tried anything new.” – Albert Einstein`,
     ];
 
-    return  (
-        <div className={styles.titleContainer}>
-            <h3 className={styles.title}>{quote[today.getDay()]}</h3>
-        </div>
-    );
+    return  <h3 className={styles.title}>{quote[today.getDay()]}</h3>;
 };
