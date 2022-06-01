@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
             const user = await getUser();
             setUser(user);
         }
-    });
+    }, [initialToken, user]);
 
     const auth = {register, login, logout, user, isLoggedIn };
 

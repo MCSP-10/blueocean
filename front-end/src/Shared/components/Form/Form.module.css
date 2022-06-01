@@ -128,9 +128,9 @@
     flex-direction: column;
 }
 
-.comment_author {
-    /* border: 1px solid black; */
-}
+/* .comment_author {
+    border: 1px solid black;
+} */
 
 .post_comment {
     display: flex;

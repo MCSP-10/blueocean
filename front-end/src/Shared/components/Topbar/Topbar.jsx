@@ -25,22 +25,24 @@ export default function Topbar() {
 
     return (
         <nav className={styles.container}>
-            <div className={styles.menu}>
-                <Menu/>
-        </div>
-            <Link to={'/home'}>
-                <img src={logo} className={styles.logo}></img>
-            </Link>
-            {/* <h1 className={styles.title}>logo</h1> */}
-            {/* <h1 className={styles.title}>{quote[today.getDay()]}</h1> */}
+            <div className={styles.leftContainer}>
+                <div className={styles.dropMenuContainer}>
+                    <Menu/>
+                </div>
+
+                <Link to={'/home'}>
+                    <img src={logo} className={styles.logo}></img>
+                </Link>
+            </div>
             <Button 
-                className={styles.title}            
+                className={styles.button}            
                 text="Logout"
                 onClick={logout}
                 color='#F79020'
+                borderColor='white'
+                borderSize='1px solid'
                 textColor="white"
             />
-            {/* <DropDown/> */}
         </nav>
     );
 }

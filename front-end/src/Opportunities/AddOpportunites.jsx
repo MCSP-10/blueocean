@@ -36,6 +36,9 @@ const AddOpportunites = (props) => {
             <hr className={styles.lineBreak}></hr>
             <form onSubmit={onSubmit}>
                    <div className={styles.field}>
+                    <label htmlFor="company" className={styles.labels}>
+                        Company Name
+                    </label>
                     <input
                         type="text"
                         id="company"
@@ -44,12 +47,12 @@ const AddOpportunites = (props) => {
                         className={styles.inputs}
                         placeholder=" "
                     />
-                    <label htmlFor="company" className={styles.labels}>
-                        Company Name
-                    </label>
                     </div>
 
                     <div className={styles.field}>
+                    <label htmlFor="location" className={styles.labels}>
+                    location
+                    </label>
                     <input
                         type="text"
                         id="location"
@@ -58,12 +61,12 @@ const AddOpportunites = (props) => {
                         className={styles.inputs}
                         placeholder=" "
                     />
-                    <label htmlFor="location" className={styles.labels}>
-                    location
-                    </label>
                     </div>
 
                 <div className={styles.field}>
+                    <label htmlFor="description" className={styles.labels}>
+                        Description
+                    </label>
                     <input
                         type="text"
                         id="description"
@@ -72,12 +75,12 @@ const AddOpportunites = (props) => {
                         className={styles.inputs}
                         placeholder=" "
                     />
-                    <label htmlFor="description" className={styles.labels}>
-                         Description
-                    </label>
                 </div>
 
                 <div className={styles.field}>
+                    <label htmlFor="job_title" className={styles.labels}>
+                        Position
+                    </label>
                     <input
                         type="text"
                         id="job_title"
@@ -86,12 +89,12 @@ const AddOpportunites = (props) => {
                         className={styles.inputs}
                         placeholder=" "
                     />
-                    <label htmlFor="job_title" className={styles.labels}>
-                        Position
-                    </label>
                 </div>
 
                 <div className={styles.field}>
+                    <label htmlFor="salary" className={styles.labels}>
+                    salary
+                    </label>
                     <input
                         type="number"
                         id="salary"
@@ -100,12 +103,12 @@ const AddOpportunites = (props) => {
                         className={styles.inputs}
                         placeholder=" "
                     />
-                    <label htmlFor="salary" className={styles.labels}>
-                    salary
-                    </label>
                 </div>
 
                 <div className={styles.field}>
+                    <label htmlFor="deadline" className={styles.labels}>
+                    deadline
+                    </label>
                     <input
                         type="date"
                         id="deadline"
@@ -114,11 +117,8 @@ const AddOpportunites = (props) => {
                         className={styles.inputs}
                         placeholder=" "
                     />
-                    <label htmlFor="deadline" className={styles.labels}>
-                    deadline
-                    </label>
                 </div>
-              
+            
                 <div className={styles.button}>
                     <Button
                         text="Create Opportunity"
