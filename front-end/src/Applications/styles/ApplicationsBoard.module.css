@@ -13,18 +13,16 @@
     width: 14%;
     min-width: 300px;
     height: max-content;
-    /* min-height:10%; */
     padding-left: .5em;
     padding-right: .5em;
     margin: 1em 1em 1em 1em;
     border-width: 10px;
-    border-right-color: green;
-    /* border-radius: 10px; */
     background-color: rgb(215, 215, 215);
     background: #ecf0f3;
-    /* bottom right shadow (darker)
+    /* bottom right shadow (darker) */
     box-shadow: 13px 13px 20px #cbced1, 
-    top right shadow (brighter) -13px -13px 20px #ffffff; */
+    /* top right shadow (brighter)  */
+                -13px -13px 20px #ffffff;
     border-radius: 8px;
     
 }
@@ -35,11 +33,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 85px; */
-    /* width: 250px; */
-    /* text-align: center; */
     color: rgb(60, 64, 67);
-    /* border: 5px solid black; */
     width: 100%;
     top: 0;
     border-bottom: 2px solid black;
@@ -54,13 +48,9 @@
 .addAppButton {
     display: flex;
     justify-content: center;
-    /* background-color: #cbced1; */
     width: 75%;
     border: 5px;
     padding-bottom: 10px;
-    /* position: fixed;
-    top: 90%;
-    z-index: 100; */
 }
 
 

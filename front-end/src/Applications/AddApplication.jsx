@@ -31,6 +31,9 @@ const AddApplication = (props) => {
             <hr className={styles.lineBreak}></hr>
             <form onSubmit={onSubmit}>
                 <div className={styles.field}>
+                    <label htmlFor="company" className={styles.labels}>
+                        Company Name
+                    </label>
                     <input
                         type="text"
                         id="company"
@@ -39,11 +42,11 @@ const AddApplication = (props) => {
                         className={styles.inputs}
                         placeholder=" "
                     />
-                    <label htmlFor="company" className={styles.labels}>
-                        Company Name
-                    </label>
                 </div>
                 <div className={styles.field}>
+                    <label htmlFor="job_title" className={styles.labels}>
+                        Position
+                    </label>
                     <input
                         type="text"
                         id="job_title"
@@ -52,9 +55,6 @@ const AddApplication = (props) => {
                         className={styles.inputs}
                         placeholder=" "
                     />
-                    <label htmlFor="job_title" className={styles.labels}>
-                        Position
-                    </label>
                 </div>
                 <label className={styles.dropDown}> STATUS: </label>
                 <select

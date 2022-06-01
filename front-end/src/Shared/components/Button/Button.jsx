@@ -1,7 +1,7 @@
 import styles from './Button.module.css';
 const Button = (props) => {
     const { children, onClick } = props;
-
+    
     const COLORS = {
         cyan: 'cyan',
         white: 'white',
@@ -21,6 +21,8 @@ const Button = (props) => {
             style={{
                 backgroundColor: COLORS[props.color] ?? 'none',
                 color: COLORS[props.textColor] ?? 'black',
+                borderColor: COLORS[props.borderColor] ?? 'none',
+                border: props.borderSize ?? 'none',
             }}
         >
             {props.icon}
