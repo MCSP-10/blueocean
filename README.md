@@ -45,7 +45,13 @@
     - [Add Domain Name](#domain)
     - [Reverse Proxy](#reverse_proxy)
     - [Deploy](#deploy)
+    - [Deployment Alternative](#compose_deploy)
+    - [Redeployment Alternative](#compose_redeploy)
+    - [React Native Error: ENOSPC Error](#enospc_error)
+    - [Note On Deployment Data Persistence](#persistence)
   - [Production Deployment](#prod_deploy)
+  - [Client Meeting Resources](#client_meetings)
+  - [Team Standup Resources](#team_meetings)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [Final Note](#ps)
@@ -608,24 +614,122 @@ docker stack deploy -c <path-to-docker-compose.yml> <app-name>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+#### (15) Deploy w/Docker-Compose<a id = "compose_deploy"></a>
+
+Alternatively to docker swarm you can also just use a simple docker compose command:
+```sh
+docker-compose up
+```
+
+See the Docker documentation for pros and cons of Docker Compose vs Docker Swarm deployment.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### (16) Reploy w/Docker-Compose<a id = "compose_redeploy"></a>
+
+Redeployment works similar to Docker Swarm redeployment.
+
+Tear down the containers:
+```sh
+docker-compose down
+```
+
+Update your repository with the current updates:
+```sh
+git pull origin main
+```
+OR
+```sh
+git fetch origin main
+git merge origin main
+```
+
+Fix conflicts if they exist and redeploy:
+```sh
+docker-compose up
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+#### (17) ENOSPC Error: System limit for number of file watchers reached <a id = "enospc_error"></a>
+
+If you run into this error while trying to deploy, I found the following to be a quick fix. You are simply increasing the file watchers limit.
+```sh
+sudo apt-get update -y
+sudo vim /etc/sysctl.conf
+```
+
+Add the `fs.inotify.max_user_watches=524288` to the bottom of the file, save and exit, and then check that it is there:
+```sh
+sudo sysctl -p
+```
+
+This solved my problem. I just ran `docker-compose down` and then `docker-compose up` and VIOLA!!
+
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+#### (18) Data Persistence for Deployment<a id = "persistence"></a>
+
+Please be aware that in it's current form the Docker Compose is not set up for data persistence. Everytime you run a `docker-compose down` or `docker swarm leave --force` and then redeploy it will create a whole new volume, with a schema, seed your database, etc.
+
+To tell docker to start it up with a previously created volume, see this [link](https://linuxhint.com/run_postgresql_docker_compose/) and this [link](https://stackoverflow.com/questions/41637505/how-to-persist-data-in-a-dockerized-postgres-database-using-volumes).
+
+I got it working initially but ran into some kinks that I didn't have time to work out. I hope you will be able to pretty quickly! Best of luck.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### D. Production Deployment<a id = "prod_deploy"></a>
 
-- It's been a bit quiet aound here lately ...
+- It's been a bit quiet aound here lately ... see these [deployment resources](https://drive.google.com/drive/folders/1asmrs9qpPt7kyKip7qNpjyS05qGBCcLs) for deploying the DB to RDS with Gitlab CI/CD.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+ ### E. Client Meeting Resources<a id = "client_meetings"></a>
+
+All client meeting notes and resources are located in [Google Drive here](https://drive.google.com/drive/folders/1asmrs9qpPt7kyKip7qNpjyS05qGBCcLs).
+
+If you don't have access and need access, feel free to send me a LinkedIn message and connect with me!
+
+[Colt Skeen Linked-In](https://www.linkedin.com/in/coltskeen/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### F. Team Standup Resources<a id = "team_meetings"></a>
+
+All team standup meeting notes and resources are located in [Google Drive here](https://drive.google.com/drive/folders/1asmrs9qpPt7kyKip7qNpjyS05qGBCcLs).
+
+If you don't have access and need access, feel free to send me a LinkedIn message and connect with me!
+
+[Colt Skeen Linked-In](https://www.linkedin.com/in/coltskeen/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## IV. Roadmap<a id = "roadmap"></a>
 
-- [X] Add project documentation
-- [ ] Add production deployment information to the README
+### A. Features
 - [ ] Add career manager vs student privileges
 - [ ] Add ability to make an organization as a career manager
 - [ ] Add ability for career manager to add students to their organization
-- [ ] Give career manager the ability to see students job board and progress
+- [ ] Give career manager the ability to see student's job board and progress
 - [ ] Give career manager and student the ability to comment on job posts
-- [ ] Change color pallete and website design for better user experience
 - [ ] Add analytics features for career manager to track student progress
-- [ ] Add mobile compatibility
+- [ ] Forgot password feature
+- [ ] Add search feature functionality
+### B. Enhancements
+- [X] Add project documentation
+- [X] Add mobile compatibility
+- [ ] Add production deployment information to the README
+- [ ] Improve website design for better user experience
+- [ ] Password security requirements feature
+- [ ] Automate pulling from other job boards so they don't have to all be entered manually
+- [ ] Ability for student to add the jobs posted on the opportunities page to their job board
+- [ ] Make a landing page
+### C. Bugs
+- [ ] Fix drop down menu bug
+- [ ] Fix bug of clicking on opportunties job cards to open them 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
