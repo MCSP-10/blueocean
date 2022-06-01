@@ -18,9 +18,9 @@ export const App = () => {
             <div className={styles.topBar}>
                 <Topbar />
             </div>
-            <div className={styles.quote}>
+            {/* <div className={styles.quote}>
                 <Quote/>
-            </div>
+            </div> */}
             <div className={styles.viewArea}>
                 <OpportunitiesProvider>
                     <Routes>
